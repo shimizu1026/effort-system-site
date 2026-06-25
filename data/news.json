@@ -1,0 +1,76 @@
+{
+  "items": [
+    {
+      "date": "2026-06-15",
+      "title": "ホームページをリニューアルしました",
+      "url": "/news/2026-06-15-renewal/",
+      "company": "effort-system",
+      "category": "お知らせ",
+      "image": "assets/images/eft-system.jpg"
+    },
+    {
+      "date": "2026-05-20",
+      "title": "夏季休業のお知らせ",
+      "url": "/news/2026-05-20-summer-holiday/",
+      "company": "effort-system",
+      "category": "お知らせ",
+      "image": "assets/images/eft-system.jpg"
+    },
+    {
+      "date": "2026-04-10",
+      "title": "新卒採用エントリー受付を開始しました",
+      "url": "/news/2026-04-10-recruit/",
+      "company": "effort-advance",
+      "category": "お知らせ",
+      "image": "assets/images/eft-advance.jpg"
+    },
+    {
+      "date": "2026-03-18",
+      "title": "防災設備の保守点検体制を強化しました",
+      "url": "/news/2026-03-18-maintenance/",
+      "company": "eft-sanyo",
+      "category": "お知らせ",
+      "image": "assets/images/eft.jpg"
+    },
+    {
+      "date": "2026-02-05",
+      "title": "通信設備工事の受注実績を更新しました",
+      "url": "/news/2026-02-05-works/",
+      "company": "effort-system",
+      "category": "お知らせ",
+      "image": "assets/images/eft-system.jpg"
+    },
+    {
+      "date": "2026-01-22",
+      "title": "年末年始休業のお知らせ",
+      "url": "/news/2026-01-22-newyear/",
+      "company": "effort-advance",
+      "category": "お知らせ",
+      "image": "assets/images/eft-advance.jpg"
+    },
+    {
+      "date": "2025-12-08",
+      "title": "消防設備点検のご案内",
+      "url": "/news/2025-12-08-inspection/",
+      "company": "eft-sanyo",
+      "category": "お知らせ",
+      "image": "assets/images/eft.jpg"
+    },
+    {
+      "date": "2025-11-14",
+      "title": "ネットワーク工事の施工事例を公開しました",
+      "url": "/news/2025-11-14-network/",
+      "company": "effort-system",
+      "category": "お知らせ",
+      "image": "assets/images/eft-system.jpg"
+    },
+    {
+      "date": "2025-10-03",
+      "title": "展示会出展のお知らせ",
+      "url": "/news/2025-10-03-exhibition/",
+      "company": "effort-advance",
+      "category": "お知らせ",
+      "image": "assets/images/eft-advance.jpg"
+    }
+  ]
+}

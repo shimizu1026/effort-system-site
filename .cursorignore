@@ -1,0 +1,41 @@
+# =========================
+# AI に見せたくないもの
+# =========================
+
+# Env files
+.env
+.env.*
+!.env.example
+!.env.sample
+
+# Secret directories
+secrets/
+private/
+vault/
+credentials/
+
+# Key / cert files
+**/*.pem
+**/*.key
+**/*.p12
+**/*.pfx
+**/*.jks
+**/*.keystore
+
+# SSH keys
+**/*id_rsa*
+**/*id_ed25519*
+
+# Credential-like files
+**/*credential*.json
+**/*credentials*.json
+**/*secret*.json
+**/*secrets*.json
+**/*token*.txt
+
+# Cloud credential locations (if included in workspace)
+**/.aws/**
+**/.azure/**
+**/.config/gcloud/**
+**/service-account*.json
+**/gcp-credentials*.json
