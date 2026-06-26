@@ -375,7 +375,7 @@ address { font-style: normal; }
 
 .mega-menu__inner {
   display: grid;
-  grid-template-columns: 160px 1fr auto;
+  grid-template-columns: 160px minmax(0, 1fr) auto;
   gap: 40px;
   align-items: start;
   width: min(100%, var(--container));
@@ -383,10 +383,11 @@ address { font-style: normal; }
 }
 
 .mega-menu--wide .mega-menu__inner {
-  grid-template-columns: 160px 1fr;
+  grid-template-columns: 160px minmax(0, 1fr);
 }
 
 .mega-menu__label {
+  grid-column: 1;
   font-size: 0.8125rem;
   font-weight: 700;
   color: rgba(255, 255, 255, 0.55);
@@ -395,53 +396,18 @@ address { font-style: normal; }
   padding-top: 8px;
 }
 
-.mega-menu__visual {
-  display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-}
-
-.mega-menu__card {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 300px;
-  transition: transform var(--transition);
-}
-
-.mega-menu__card:hover {
-  transform: translateY(-4px);
-}
-
-.mega-menu__card img {
-  width: 300px;
-  height: 120px;
-  object-fit: cover;
-  border-radius: 8px;
-  background: rgba(255, 255, 255, 0.12);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.mega-menu__card span {
-  font-size: 0.75rem;
-  font-weight: 500;
-  color: rgba(255, 255, 255, 0.9);
-  line-height: 1.5;
-  transition: color var(--transition);
-}
-
-.mega-menu__card:hover span {
-  color: var(--color-accent);
-}
-
 .mega-menu__links {
+  grid-column: 3;
   display: flex;
   flex-direction: column;
   gap: 12px;
   padding-top: 8px;
   border-left: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: none;
   padding-left: 32px;
+  padding-bottom: 0;
   min-width: 200px;
+  list-style: none;
 }
 
 .mega-menu__links a {
@@ -455,11 +421,64 @@ address { font-style: normal; }
   color: var(--color-accent);
 }
 
-.mega-menu__grid {
+.mega-menu__visual {
+  grid-column: 2;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  gap: 16px;
+  min-width: 0;
+}
+
+.mega-menu__card {
+  position: relative;
+  display: block;
+  width: 100%;
+  min-width: 0;
+  max-width: 300px;
+  border-radius: 8px;
+  overflow: hidden;
+  transition: transform var(--transition);
+}
+
+.mega-menu__card:hover {
+  transform: translateY(-4px);
+}
+
+.mega-menu__card span {
+  position: absolute;
+  inset: auto 0 0 0;
+  z-index: 1;
+  padding: 10px 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: #fff;
+  line-height: 1.5;
+  background: linear-gradient(transparent, rgba(5, 11, 32, 0.85));
+  transition: color var(--transition);
+}
+
+.mega-menu__card img {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  aspect-ratio: 5 / 3;
+  object-fit: cover;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.mega-menu__card:hover span {
+  color: var(--color-accent);
+}
+
+.mega-menu__grid {
+  grid-column: 2;
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px 24px;
   padding-top: 8px;
+  min-width: 0;
 }
 
 .mega-menu__grid a {
@@ -996,13 +1015,25 @@ html.is-menu-open {
   transition: background var(--transition), transform 0.2s;
 }
 
+@property --ring-angle {
+  syntax: '<angle>';
+  inherits: false;
+  initial-value: 0deg;
+}
+
 .hero__area-btn::before {
   content: '';
   position: absolute;
   inset: -3px;
   border-radius: 50%;
   padding: 2px;
-  background: conic-gradient(from -90deg, var(--color-accent) 0deg, var(--color-accent) 0deg, transparent 0deg);
+  --ring-angle: 0deg;
+  background: conic-gradient(
+    from 0deg,
+    var(--color-accent) 0deg,
+    var(--color-accent) var(--ring-angle),
+    transparent var(--ring-angle)
+  );
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
@@ -1028,16 +1059,16 @@ html.is-menu-open {
 .hero__area-btn:not(:hover)::before {
   animation: none;
   opacity: 0;
-  background: conic-gradient(from -90deg, var(--color-accent) 0deg, var(--color-accent) 0deg, transparent 0deg);
+  --ring-angle: 0deg;
 }
 
 @keyframes hero-area-ring {
-  0% {
-    background: conic-gradient(from -90deg, var(--color-accent) 0deg, var(--color-accent) 0deg, transparent 0deg);
+  from {
+    --ring-angle: 0deg;
   }
 
-  100% {
-    background: conic-gradient(from -90deg, var(--color-accent) 0deg, var(--color-accent) 360deg, transparent 360deg);
+  to {
+    --ring-angle: 360deg;
   }
 }
 
@@ -1045,7 +1076,7 @@ html.is-menu-open {
   .hero__area-btn:hover::before {
     animation: none;
     opacity: 1;
-    background: conic-gradient(from -90deg, var(--color-accent) 0deg, var(--color-accent) 360deg, transparent 360deg);
+    --ring-angle: 360deg;
   }
 
   .hero__area-btn:hover {
@@ -1383,7 +1414,7 @@ html.is-menu-open {
 .news__layout {
   display: grid;
   grid-template-columns: minmax(160px, 220px) 1fr;
-  gap: clamp(32px, 5vw, 72px);
+  gap: clamp(112px, 18vw, 240px);
   align-items: start;
   margin-top: 48px;
 }
@@ -1700,7 +1731,7 @@ html.is-menu-open {
 @media (max-width: 900px) {
   .news__layout {
     grid-template-columns: 1fr;
-    gap: 32px;
+    gap: 96px;
   }
 
   .news__sidebar {
