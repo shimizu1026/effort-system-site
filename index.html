@@ -13,7 +13,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&family=Outfit:wght@300;400;600;700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700&family=Noto+Serif+JP:wght@300;400;600;700&family=Outfit:wght@300;400;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/destyle.css" />
@@ -518,10 +518,16 @@
         <section class="hero" id="hero" aria-label="ファーストビュー">
           <div class="hero__content">
             <h1 class="hero__title">
-              <span class="hero__title-line">つながる、に確かさを。</span>
+              <span class="hero__title-line">
+                <span class="hero__title-text">つながる、に確かさを。</span>
+              </span>
             </h1>
             <p class="hero__lead">
-              50Hz～40GHzの技術領域で、情報通信・ネットワーク・消防設備のプランニングから施工・保守まで。
+              <span class="hero__lead-line">
+                50Hz～40GHzの技術領域で、情報通信・ネットワーク・消防設備の
+                <br />
+                プランニングから施工・保守まで。
+              </span>
             </p>
           </div>
           <div class="hero__scroll" aria-hidden="true">
@@ -660,7 +666,9 @@
           <div class="news__layout">
             <aside class="news__sidebar" aria-label="お知らせの絞り込み">
               <div class="news__filter">
-                <span class="news__filter-label" id="newsCompanyLabel">会社名</span>
+                <span class="news__filter-label" id="newsCompanyLabel">
+                  会社名
+                </span>
                 <ul
                   class="news__company-list"
                   id="newsCompanyFilter"
@@ -710,8 +718,9 @@
                     aria-controls="newsMonthList"
                     aria-labelledby="newsMonthLabel"
                   >
-                    <span class="news__month-value" id="newsMonthValue">年月を選択</span>
-                    <span class="news__month-icon" aria-hidden="true"></span>
+                    <span class="news__month-value" id="newsMonthValue">
+                      年月を選択
+                    </span>
                   </button>
                   <ul
                     class="news__month-list"
@@ -743,42 +752,136 @@
 
       <!-- 5. リクルート -->
       <section class="recruit section" id="recruit">
-        <div class="recruit__bg" aria-hidden="true"></div>
         <div class="container">
-          <div class="recruit__inner">
-            <span class="section-label recruit__label" data-animate>
-              RECRUIT
-            </span>
-            <div class="recruit__visual" data-animate>
-              <img
-                src="assets/images/recruit-atarimae.png"
-                alt="あたりまえ、をつなげ！"
-                width="640"
-                height="360"
-                loading="lazy"
-              />
+          <a
+            href="https://recruit.eft.co.jp/"
+            class="recruit__link"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <div class="recruit__scene">
+              <div class="recruit__photos" aria-hidden="true">
+                <div class="recruit__photo recruit__photo--1">
+                  <img
+                    src="assets/images/recruit-cad.jpg"
+                    alt=""
+                    width="440"
+                    height="293"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="recruit__photo recruit__photo--2">
+                  <img
+                    src="assets/images/recruit-network.jpg"
+                    alt=""
+                    width="440"
+                    height="293"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="recruit__photo recruit__photo--3">
+                  <img
+                    src="assets/images/recruit-maintenance.jpg"
+                    alt=""
+                    width="440"
+                    height="293"
+                    loading="lazy"
+                  />
+                </div>
+                <div class="recruit__photo recruit__photo--4">
+                  <img
+                    src="assets/images/recruit-woman.jpg"
+                    alt=""
+                    width="440"
+                    height="293"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <div class="recruit__inner">
+                <div class="recruit__visual">
+                  <img
+                    src="assets/images/recruit-atarimae.png"
+                    alt="あたりまえ、をつなげ！"
+                    width="640"
+                    height="360"
+                    loading="lazy"
+                  />
+                </div>
+              </div>
+              <div class="recruit__cursor" aria-hidden="true">
+                <span class="recruit__cursor-body">
+                  <span class="recruit__cursor-ring"></span>
+                  <span class="recruit__cursor-dot"></span>
+                  <span class="recruit__cursor-label">クリック！</span>
+                </span>
+              </div>
             </div>
-            <h2 class="recruit__title" data-animate>あたりまえ、をつなげ！</h2>
-            <div class="recruit__copy" data-animate>
-              <p>世界を驚かせる仕事は、他に譲る。</p>
-              <p>その世界が1秒も止まらないように。</p>
-              <p>私たちは、あたりまえをつないでいく。</p>
-            </div>
-            <div data-animate>
+          </a>
+        </div>
+      </section>
+
+      <!-- 6. 総合カタログ -->
+      <section class="catalog section" id="catalog">
+        <div class="container">
+          <div class="catalog__inner" data-animate>
+            <span class="section-label">CATALOG</span>
+            <h2 class="section-title">総合カタログ</h2>
+            <p class="catalog__body">
+              グループ3社の通信・防災・ネットワーク設備における、
+              すべてのソリューションと製品仕様を網羅したテクニカルアーカイブ。
+            </p>
+            <div class="catalog__action">
               <a
-                href="https://recruit.eft.co.jp/"
-                class="btn btn--primary btn--lg"
+                href="assets/files/総合カタログVOL.6.pdf"
+                class="btn btn--outline"
                 target="_blank"
                 rel="noopener noreferrer"
               >
-                リクルート特設サイト
+                総合カタログVOL.6.pdf
               </a>
             </div>
           </div>
         </div>
       </section>
 
-      <!-- 6. お問い合わせ -->
+      <!-- 7. 社会貢献活動 -->
+      <section class="csr section" id="csr">
+        <div class="container">
+          <div class="section-header" data-animate>
+            <span class="section-label">CSR</span>
+            <h2 class="section-title">社会貢献活動</h2>
+          </div>
+          <ul class="csr__list" id="csrList" data-cms-endpoint="data/csr.json">
+            <li class="csr__item">
+              <time class="csr__date" datetime="2026-05-24">2026.05.24</time>
+              <h3 class="csr__title">太田川一斉清掃への参加</h3>
+              <p class="csr__body">
+                当社では、社会貢献活動の取り組みの一環として広島県などが主催する「クリーン太田川」に社員及び社員の家族がボランティア活動として参加し、太田川のゴミ収集の清掃活動を実施しております。
+                　今後も継続して社会貢献活動に取り組んでまいります。
+              </p>
+            </li>
+            <li class="csr__item">
+              <time class="csr__date" datetime="2025-05-18">2025.05.18</time>
+              <h3 class="csr__title">太田川一斉清掃への参加</h3>
+              <p class="csr__body">
+                当社では、社会貢献活動の取り組みの一環として広島県などが主催する「クリーン太田川」に社員及び社員の家族がボランティア活動として参加し、太田川のゴミ収集の清掃活動を実施しました。
+                　引き続き、社会貢献活動に取り組んでまいります。
+              </p>
+            </li>
+            <li class="csr__item">
+              <time class="csr__date" datetime="2024-05-19">2024.05.19</time>
+              <h3 class="csr__title">太田川一斉清掃への参加</h3>
+              <p class="csr__body">
+                当社では、社会貢献活動の取り組みの一環として広島県などが主催する「クリーン太田川」に社員及び社員の家族がボランティア活動として参加し、太田川のゴミ収集の清掃活動を実施しました。
+                　今後も継続して社会貢献活動に取り組んでまいります。
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- 8. お問い合わせ -->
       <section class="contact section" id="contact">
         <div class="container">
           <div class="contact__inner">
@@ -801,7 +904,7 @@
         </div>
       </section>
 
-      <!-- 7. 所在地・アクセス -->
+      <!-- 9. 所在地・アクセス -->
       <section class="access section" id="access">
         <div class="container">
           <div class="access__grid">
@@ -865,8 +968,12 @@
               <li><a href="/about/overview/">エフォートグループについて</a></li>
               <li><a href="/services/bousai-musen/">事業領域</a></li>
               <li><a href="/works/">実績・取引先</a></li>
-              <li><a href="/companies/effort-system/">エフォートシステム</a></li>
-              <li><a href="/companies/effort-advance/">エフォートアドバンス</a></li>
+              <li>
+                <a href="/companies/effort-system/">エフォートシステム</a>
+              </li>
+              <li>
+                <a href="/companies/effort-advance/">エフォートアドバンス</a>
+              </li>
               <li><a href="/companies/eft-sanyo/">EFT山陽防災</a></li>
               <li><a href="/recruit/">採用情報</a></li>
               <li><a href="/news/">ニュースリリース</a></li>

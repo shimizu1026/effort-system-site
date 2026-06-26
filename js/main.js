@@ -97,9 +97,11 @@
 
   function setMenuOpen(open) {
     menuOpen = open;
+
     menuBtn.classList.toggle('is-open', menuOpen);
     globalNav.classList.toggle('is-open', menuOpen);
     navBackdrop.classList.toggle('is-open', menuOpen);
+    document.documentElement.classList.toggle('is-menu-open', menuOpen);
     document.body.classList.toggle('is-menu-open', menuOpen);
     menuBtn.setAttribute('aria-expanded', String(menuOpen));
     menuBtn.setAttribute('aria-label', menuOpen ? 'メニューを閉じる' : 'メニューを開く');
@@ -128,12 +130,54 @@
   });
 
   /* ---- Hero animation ---- */
-  const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  const heroMotionReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const heroTitleText = document.querySelector('.hero__title-text');
 
-  heroTl
-    .fromTo('.hero__title-line', { y: '110%', opacity: 0 }, { y: 0, opacity: 1, duration: 1.2, delay: 0.3 })
-    .fromTo('.hero__lead', { y: 30, opacity: 0 }, { y: 0, opacity: 1, duration: 0.9 }, '-=0.5')
-    .fromTo('.hero__scroll', { opacity: 0 }, { opacity: 1, duration: 0.8 }, '-=0.3');
+  const finishHeroTitleShine = () => {
+    if (heroTitleText?.classList.contains('is-settled')) return;
+    heroTitleText?.classList.add('is-settled');
+    gsap.set('.hero__title-text', { clearProps: 'backgroundPosition' });
+  };
+
+  if (heroMotionReduced) {
+    gsap.set('.hero__title-text, .hero__lead-line, .hero__scroll', { y: 0 });
+    gsap.set('.hero__scroll', { opacity: 1 });
+    heroTitleText?.classList.add('is-settled');
+  } else {
+    const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+
+    heroTl.fromTo(
+      '.hero__title-text',
+      { y: '110%' },
+      { y: 0, duration: 0.95, delay: 0.08, ease: 'power4.out' }
+    );
+
+    heroTl.fromTo(
+      '.hero__lead-line',
+      { y: '110%' },
+      { y: 0, duration: 0.85, ease: 'power4.out' },
+      '>'
+    );
+
+    heroTl.fromTo(
+      '.hero__title-text',
+      { backgroundPosition: '100% 50%' },
+      {
+        backgroundPosition: '0% 50%',
+        duration: 5,
+        ease: 'power2.inOut',
+        onUpdate() {
+          if (this.progress() >= 0.68) {
+            finishHeroTitleShine();
+          }
+        },
+        onComplete: finishHeroTitleShine,
+      },
+      '>'
+    );
+
+    heroTl.fromTo('.hero__scroll', { opacity: 0 }, { opacity: 1, duration: 0.5 }, '-=0.5');
+  }
 
   gsap.fromTo('.hero-areas .hero__guide', { y: 20, opacity: 0 }, {
     scrollTrigger: {
@@ -427,4 +471,136 @@
   }
 
   loadNews();
+
+  /* ---- CSR (CMS placeholder) ---- */
+  const csrList = document.getElementById('csrList');
+
+  if (csrList) {
+    const csrEndpoint = csrList.dataset.cmsEndpoint;
+
+    async function loadCsr() {
+      try {
+        const res = await fetch(csrEndpoint);
+        if (!res.ok) throw new Error('CSR fetch failed');
+        const data = await res.json();
+        const items = data.items.sort((a, b) => b.date.localeCompare(a.date));
+
+        if (items.length === 0) {
+          csrList.innerHTML = '<li class="csr__item"><p class="csr__empty">社会貢献活動の投稿はありません。</p></li>';
+          return;
+        }
+
+        csrList.innerHTML = items
+          .map(
+            (item) => `
+          <li class="csr__item">
+            <time class="csr__date" datetime="${item.date}">${formatDate(item.date)}</time>
+            <h3 class="csr__title">${item.title}</h3>
+            <p class="csr__body">${item.body}</p>
+          </li>`
+          )
+          .join('');
+
+        gsap.fromTo(
+          '.csr__item',
+          { opacity: 0, y: 16 },
+          {
+            opacity: 1,
+            y: 0,
+            duration: 0.5,
+            stagger: 0.08,
+            ease: 'power2.out',
+            overwrite: 'auto',
+          }
+        );
+      } catch {
+        if (!csrList.querySelector('.csr__item')) {
+          csrList.innerHTML =
+            '<li class="csr__item"><p class="csr__empty">社会貢献活動を読み込めませんでした。</p></li>';
+        }
+      }
+    }
+
+    loadCsr();
+  }
+
+  /* ---- Recruit interaction ---- */
+  const recruitLink = document.querySelector('.recruit__link');
+
+  if (recruitLink) {
+    const recruitScene = recruitLink.querySelector('.recruit__scene');
+    const recruitCursor = recruitLink.querySelector('.recruit__cursor');
+    const recruitCursorBody = recruitLink.querySelector('.recruit__cursor-body');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const canUseCustomCursor = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+
+    const TIMING = {
+      gather: prefersReducedMotion ? 0 : 700,
+      fade: prefersReducedMotion ? 0 : 350,
+      reveal: prefersReducedMotion ? 0 : 450,
+    };
+
+    let recruitTimers = [];
+
+    const clearRecruitTimers = () => {
+      recruitTimers.forEach(clearTimeout);
+      recruitTimers = [];
+    };
+
+    const resetRecruitSequence = () => {
+      clearRecruitTimers();
+      recruitLink.classList.remove('is-active', 'is-gathered', 'is-revealed', 'is-complete');
+    };
+
+    const startRecruitSequence = () => {
+      if (recruitLink.classList.contains('is-active')) return;
+
+      resetRecruitSequence();
+      recruitLink.classList.add('is-active');
+
+      recruitTimers.push(
+        setTimeout(() => {
+          recruitLink.classList.add('is-gathered');
+        }, TIMING.gather)
+      );
+
+      recruitTimers.push(
+        setTimeout(() => {
+          recruitLink.classList.add('is-revealed');
+        }, TIMING.gather + TIMING.fade)
+      );
+
+      recruitTimers.push(
+        setTimeout(() => {
+          recruitLink.classList.add('is-complete');
+        }, TIMING.gather + TIMING.fade + TIMING.reveal)
+      );
+    };
+
+    recruitLink.addEventListener('mouseenter', startRecruitSequence);
+    recruitLink.addEventListener('mouseleave', resetRecruitSequence);
+    recruitLink.addEventListener('focusin', startRecruitSequence);
+    recruitLink.addEventListener('focusout', resetRecruitSequence);
+
+    if (canUseCustomCursor && recruitScene && recruitCursor && recruitCursorBody) {
+      recruitLink.classList.add('has-custom-cursor');
+
+      const xTo = gsap.quickTo(recruitCursorBody, 'x', { duration: 0.28, ease: 'power3.out' });
+      const yTo = gsap.quickTo(recruitCursorBody, 'y', { duration: 0.28, ease: 'power3.out' });
+
+      recruitScene.addEventListener('mousemove', (event) => {
+        const rect = recruitScene.getBoundingClientRect();
+        xTo(event.clientX - rect.left);
+        yTo(event.clientY - rect.top);
+      });
+
+      recruitLink.addEventListener('mouseenter', () => {
+        recruitCursor.classList.add('is-visible');
+      });
+
+      recruitLink.addEventListener('mouseleave', () => {
+        recruitCursor.classList.remove('is-visible');
+      });
+    }
+  }
 })();
