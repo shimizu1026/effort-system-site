@@ -405,7 +405,7 @@ address { font-style: normal; }
   display: flex;
   flex-direction: column;
   gap: 10px;
-  width: 140px;
+  width: 300px;
   transition: transform var(--transition);
 }
 
@@ -414,8 +414,8 @@ address { font-style: normal; }
 }
 
 .mega-menu__card img {
-  width: 140px;
-  height: 88px;
+  width: 300px;
+  height: 120px;
   object-fit: cover;
   border-radius: 8px;
   background: rgba(255, 255, 255, 0.12);
@@ -883,7 +883,6 @@ html.is-menu-open {
   line-height: 1.9;
   width: 100%;
   margin-bottom: 0;
-  position: relative;
   overflow: hidden;
 }
 
@@ -910,18 +909,29 @@ html.is-menu-open {
   white-space: nowrap;
 }
 
+@property --hero-white {
+  syntax: '<number>';
+  inherits: false;
+  initial-value: 0;
+}
 
 .hero__title-text {
   display: block;
   position: relative;
   transform: translateY(110%);
   backface-visibility: hidden;
-}
+  --hero-white: 0;
+  --hero-dim-color: rgba(
+    calc(211 + 44 * var(--hero-white)),
+    calc(209 + 46 * var(--hero-white)),
+    calc(209 + 46 * var(--hero-white)),
+    calc(0.3 + 0.7 * var(--hero-white))
+  );
   background-image: linear-gradient(
     70deg,
-    rgba(211, 209, 209, 0.3) 45%,
+    var(--hero-dim-color) 45%,
     #fff 50%,
-    rgba(211, 209, 209, 0.3) 55%
+    var(--hero-dim-color) 55%
   );
   background-size: 500% 100%;
   background-repeat: no-repeat;
@@ -992,7 +1002,7 @@ html.is-menu-open {
   inset: -3px;
   border-radius: 50%;
   padding: 2px;
-  background: conic-gradient(from 0deg, var(--color-accent) 0deg, var(--color-accent) 100deg, transparent 100deg);
+  background: conic-gradient(from -90deg, var(--color-accent) 0deg, var(--color-accent) 0deg, transparent 0deg);
   -webkit-mask:
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
@@ -1018,22 +1028,16 @@ html.is-menu-open {
 .hero__area-btn:not(:hover)::before {
   animation: none;
   opacity: 0;
-  transform: rotate(0deg);
-  background: conic-gradient(from 0deg, var(--color-accent) 0deg, var(--color-accent) 100deg, transparent 100deg);
+  background: conic-gradient(from -90deg, var(--color-accent) 0deg, var(--color-accent) 0deg, transparent 0deg);
 }
 
 @keyframes hero-area-ring {
   0% {
-    transform: rotate(0deg);
-    background: conic-gradient(from 0deg, var(--color-accent) 0deg, var(--color-accent) 100deg, transparent 100deg);
+    background: conic-gradient(from -90deg, var(--color-accent) 0deg, var(--color-accent) 0deg, transparent 0deg);
   }
-  72% {
-    transform: rotate(360deg);
-    background: conic-gradient(from 0deg, var(--color-accent) 0deg, var(--color-accent) 100deg, transparent 100deg);
-  }
+
   100% {
-    transform: rotate(360deg);
-    background: conic-gradient(from 0deg, var(--color-accent) 0deg, var(--color-accent) 360deg);
+    background: conic-gradient(from -90deg, var(--color-accent) 0deg, var(--color-accent) 360deg, transparent 360deg);
   }
 }
 
@@ -1041,8 +1045,7 @@ html.is-menu-open {
   .hero__area-btn:hover::before {
     animation: none;
     opacity: 1;
-    transform: none;
-    background: conic-gradient(from 0deg, var(--color-accent) 0deg, var(--color-accent) 360deg);
+    background: conic-gradient(from -90deg, var(--color-accent) 0deg, var(--color-accent) 360deg, transparent 360deg);
   }
 
   .hero__area-btn:hover {
