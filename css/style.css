@@ -2131,8 +2131,15 @@ html.is-menu-open {
   background: var(--color-bg);
 }
 
+.catalog__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(360px, 480px);
+  gap: clamp(40px, 6vw, 88px);
+  align-items: center;
+}
+
 .catalog__inner {
-  max-width: 720px;
+  max-width: 560px;
 }
 
 .catalog__body {
@@ -2145,27 +2152,18 @@ html.is-menu-open {
   margin-top: 32px;
 }
 
-/* ---- Card Swiper ---- */
-.card-swiper {
+/* ---- Card Swiper (catalog) ---- */
+.catalog .card-swiper__stage {
   position: relative;
-  z-index: 1;
-  background:
-    radial-gradient(circle at 15% 20%, rgba(0, 180, 216, 0.12) 0%, transparent 45%),
-    radial-gradient(circle at 85% 80%, rgba(5, 11, 32, 0.06) 0%, transparent 40%),
-    linear-gradient(160deg, #e8f4f8 0%, var(--color-bg) 55%, #eef2f8 100%);
-  overflow: hidden;
-}
-
-.card-swiper__stage {
-  position: relative;
-  width: min(100%, 340px);
-  height: clamp(420px, 52vw, 520px);
+  width: 100%;
+  max-width: 480px;
+  height: clamp(500px, 42vw, 620px);
   margin-inline: auto;
   outline: none;
   touch-action: pan-y;
 }
 
-.card-swiper__stage:focus-visible {
+.catalog .card-swiper__stage:focus-visible {
   box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.45);
   border-radius: var(--radius);
 }
@@ -2181,7 +2179,7 @@ html.is-menu-open {
   position: absolute;
   top: 50%;
   left: 50%;
-  width: min(100%, 300px);
+  width: min(100%, 400px);
   transform: translate(-50%, -50%);
   will-change: transform, opacity;
 }
@@ -2192,18 +2190,18 @@ html.is-menu-open {
   overflow: hidden;
   border-radius: 12px;
   background: var(--color-bg-card);
-  box-shadow: 0 20px 48px rgba(5, 11, 32, 0.16);
+  box-shadow: 0 24px 56px rgba(5, 11, 32, 0.16);
   transition: box-shadow var(--transition);
 }
 
 .card-swiper__slide.is-active .card-swiper__card:hover {
-  box-shadow: 0 24px 56px rgba(5, 11, 32, 0.22);
+  box-shadow: 0 28px 64px rgba(5, 11, 32, 0.22);
 }
 
 .card-swiper__card img {
   display: block;
   width: 100%;
-  aspect-ratio: 3 / 4;
+  aspect-ratio: 4 / 5;
   object-fit: cover;
 }
 
@@ -2234,45 +2232,6 @@ html.is-menu-open {
   color: #fff;
 }
 
-.card-swiper__controls {
-  position: absolute;
-  right: -8px;
-  bottom: 0;
-  z-index: 40;
-  display: flex;
-  gap: 8px;
-}
-
-.card-swiper__btn {
-  display: grid;
-  place-items: center;
-  width: 44px;
-  height: 44px;
-  font-family: var(--font-en);
-  font-size: 1.125rem;
-  color: var(--color-primary);
-  background: rgba(255, 255, 255, 0.92);
-  border: 1px solid var(--color-border);
-  border-radius: 50%;
-  box-shadow: 0 8px 24px rgba(5, 11, 32, 0.1);
-  cursor: pointer;
-  transition:
-    color var(--transition),
-    background var(--transition),
-    border-color var(--transition),
-    transform var(--transition);
-}
-
-.card-swiper__btn:hover {
-  color: #fff;
-  background: var(--color-primary);
-  border-color: var(--color-primary);
-}
-
-.card-swiper__btn:active {
-  transform: scale(0.96);
-}
-
 .card-swiper__empty {
   position: absolute;
   inset: 0;
@@ -2283,20 +2242,34 @@ html.is-menu-open {
   text-align: center;
 }
 
+@media (max-width: 960px) {
+  .catalog__layout {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .catalog__inner {
+    max-width: none;
+  }
+
+  .catalog .card-swiper__stage {
+    max-width: 420px;
+    height: clamp(460px, 88vw, 560px);
+  }
+
+  .card-swiper__slide {
+    width: min(100%, 360px);
+  }
+}
+
 @media (max-width: 768px) {
-  .card-swiper__stage {
-    width: min(100%, 300px);
-    height: clamp(380px, 78vw, 460px);
+  .catalog .card-swiper__stage {
+    max-width: 360px;
+    height: clamp(420px, 105vw, 500px);
   }
 
-  .card-swiper__controls {
-    right: 0;
-  }
-
-  .card-swiper__btn {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
+  .card-swiper__slide {
+    width: min(100%, 320px);
   }
 }
 

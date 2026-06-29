@@ -1,34 +1,34 @@
 {
   "items": [
     {
-      "category": "防災無線",
-      "name": "防災無線・消防無線設備",
-      "image": "assets/images/hero-poster.jpg",
-      "url": "/services/bousai-musen/"
+      "category": "CATALOG",
+      "name": "無線設備",
+      "image": "assets/images/catalog-wireless.png",
+      "url": "assets/files/総合カタログVOL.6.pdf"
     },
     {
-      "category": "ネットワーク",
-      "name": "ネットワーク・LAN設備",
-      "image": "assets/images/eft-system.jpg",
-      "url": "/services/network-lan/"
+      "category": "CATALOG",
+      "name": "Siklu",
+      "image": "assets/images/catalog-siklu.png",
+      "url": "assets/files/総合カタログVOL.6.pdf"
     },
     {
-      "category": "監視",
-      "name": "CCTV・監視カメラ設備",
-      "image": "assets/images/eft-advance.jpg",
-      "url": "/services/cctv/"
+      "category": "CATALOG",
+      "name": "Multihaul",
+      "image": "assets/images/catalog-multihaul.png",
+      "url": "assets/files/総合カタログVOL.6.pdf"
     },
     {
-      "category": "消防",
-      "name": "消防設備工事・保守点検",
-      "image": "assets/images/eft.jpg",
-      "url": "/services/fire-protection/"
+      "category": "CATALOG",
+      "name": "システム",
+      "image": "assets/images/catalog-syttem.jpg",
+      "url": "assets/files/総合カタログVOL.6.pdf"
     },
     {
-      "category": "保守",
-      "name": "保守・メンテナンス",
-      "image": "assets/images/recruit-atarimae.png",
-      "url": "/services/maintenance/"
+      "category": "CATALOG",
+      "name": "総合カタログ",
+      "image": "assets/images/201809071502488852.png",
+      "url": "assets/files/総合カタログVOL.6.pdf"
     }
   ]
 }

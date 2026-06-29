@@ -5,8 +5,6 @@
   if (!stage || typeof gsap === 'undefined') return;
 
   const track = stage.querySelector('.card-swiper__track');
-  const prevBtn = stage.querySelector('.card-swiper__btn--prev');
-  const nextBtn = stage.querySelector('.card-swiper__btn--next');
   const endpoint = stage.dataset.cmsEndpoint;
 
   if (!track || !endpoint) return;
@@ -18,10 +16,10 @@
 
   const STACK = {
     active: { x: 0, y: 0, scale: 1, rotation: 0, opacity: 1, zIndex: 30 },
-    behind1: { x: -36, y: 18, scale: 0.94, rotation: -5, opacity: 0.88, zIndex: 20 },
-    behind2: { x: -72, y: 36, scale: 0.88, rotation: -8, opacity: 0.65, zIndex: 10 },
-    hidden: { x: -88, y: 44, scale: 0.86, rotation: -10, opacity: 0, zIndex: 0 },
-    enter: { x: -88, y: 44, scale: 0.86, rotation: -10, opacity: 0, zIndex: 5 },
+    behind1: { x: -44, y: 22, scale: 0.94, rotation: -5, opacity: 0.88, zIndex: 20 },
+    behind2: { x: -88, y: 44, scale: 0.88, rotation: -8, opacity: 0.65, zIndex: 10 },
+    hidden: { x: -108, y: 52, scale: 0.86, rotation: -10, opacity: 0, zIndex: 0 },
+    enter: { x: -108, y: 52, scale: 0.86, rotation: -10, opacity: 0, zIndex: 5 },
   };
 
   let slideEls = [];
@@ -73,7 +71,7 @@
         (item, index) => `
       <li class="card-swiper__slide${index === 0 ? ' is-active' : ''}" data-index="${index}">
         <a href="${item.url}" class="card-swiper__card">
-          <img src="${item.image}" alt="" width="300" height="400" loading="lazy" />
+          <img src="${item.image}" alt="" width="400" height="500" loading="lazy" />
           <div class="card-swiper__label">
             <span class="card-swiper__category">${item.category}</span>
             <span class="card-swiper__name">${item.name}</span>
@@ -171,9 +169,6 @@
   }
 
   function bindEvents() {
-    nextBtn?.addEventListener('click', goNext);
-    prevBtn?.addEventListener('click', goPrev);
-
     stage.addEventListener('keydown', (event) => {
       if (event.key === 'ArrowRight') {
         event.preventDefault();
