@@ -345,7 +345,7 @@ address { font-style: normal; }
   right: 0;
   top: calc(20px + 56px);
   z-index: 2;
-  padding: 24px 24px 40px;
+  padding: 20px 16px 32px;
   background: transparent;
   border: none;
   box-shadow: none;
@@ -375,15 +375,16 @@ address { font-style: normal; }
 
 .mega-menu__inner {
   display: grid;
-  grid-template-columns: 160px minmax(0, 1fr) auto;
-  gap: 40px;
+  grid-template-columns: minmax(0, 120px) max-content auto;
+  gap: 20px;
   align-items: start;
-  width: min(100%, var(--container));
-  margin-inline: auto;
+  width: 100%;
+  max-width: none;
+  margin-inline: 0;
 }
 
 .mega-menu--wide .mega-menu__inner {
-  grid-template-columns: 160px minmax(0, 1fr);
+  grid-template-columns: minmax(0, 120px) minmax(0, 1fr);
 }
 
 .mega-menu__label {
@@ -404,9 +405,9 @@ address { font-style: normal; }
   padding-top: 8px;
   border-left: 1px solid rgba(255, 255, 255, 0.2);
   border-bottom: none;
-  padding-left: 32px;
+  padding-left: 16px;
   padding-bottom: 0;
-  min-width: 200px;
+  min-width: 0;
   list-style: none;
 }
 
@@ -423,20 +424,24 @@ address { font-style: normal; }
 
 .mega-menu__visual {
   grid-column: 2;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  align-items: start;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 240px));
+  gap: 12px;
+  width: fit-content;
+  max-width: 100%;
   min-width: 0;
+}
+
+.mega-menu__visual:has(.mega-menu__card:nth-child(2):last-child) {
+  grid-template-columns: repeat(2, minmax(0, 240px));
 }
 
 .mega-menu__card {
   position: relative;
   display: block;
-  flex: 0 1 300px;
-  width: min(100%, 300px);
+  width: 100%;
   min-width: 0;
-  max-width: 300px;
+  max-width: none;
   border-radius: 8px;
   overflow: hidden;
   transition: transform var(--transition);
@@ -462,7 +467,6 @@ address { font-style: normal; }
 .mega-menu__card img {
   display: block;
   width: 100%;
-  max-width: 300px;
   height: auto;
   aspect-ratio: 5 / 3;
   object-fit: cover;
