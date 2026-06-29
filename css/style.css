@@ -13,9 +13,9 @@
   --color-text-muted: #5c6b7f;
   --color-text-light: #e8edf4;
   --color-border: #d8dfe9;
-  --font-ja: 'Noto Sans JP', sans-serif;
-  --font-ja-mincho: 'Noto Serif JP', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
-  --font-en: 'Outfit', sans-serif;
+  --font-ja: 'Zen Old Mincho', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+  --font-ja-mincho: 'Zen Old Mincho', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+  --font-en: 'Zen Kaku Gothic New', sans-serif;
   --container: 1360px;
   --container-wide: 1520px;
   --radius: 6px;
@@ -840,14 +840,7 @@ html.is-menu-open {
 }
 
 .hero__fade {
-  position: absolute;
-  inset: 0;
-  z-index: 2;
-  opacity: 0;
-  background: rgba(244, 246, 249, 0.9);
-  backdrop-filter: blur(24px);
-  -webkit-backdrop-filter: blur(24px);
-  pointer-events: none;
+  display: none;
 }
 
 .hero__video {
@@ -1187,15 +1180,11 @@ html.is-menu-open {
   }
 }
 
-/* ---- About (on video → white at top) ---- */
+/* ---- About (on video) ---- */
 .about {
   position: relative;
   z-index: 2;
-  transition: background 0.5s ease;
-}
-
-.about.is-on-white {
-  background: var(--color-bg);
+  background: transparent;
 }
 
 .about .section-label {
@@ -1203,6 +1192,8 @@ html.is-menu-open {
 }
 
 .about__inner {
+  position: relative;
+  z-index: 1;
   max-width: 860px;
   margin-inline: auto;
   text-align: center;
@@ -1215,21 +1206,13 @@ html.is-menu-open {
   letter-spacing: 0.04em;
   margin-bottom: 48px;
   color: #fff;
-  transition: color 0.5s ease;
-}
-
-.about.is-on-white .about__heading {
-  color: var(--color-text);
+  text-shadow: 0 2px 24px rgba(5, 11, 32, 0.45);
 }
 
 .about__body p {
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.88);
   margin-bottom: 1.5em;
-  transition: color 0.5s ease;
-}
-
-.about.is-on-white .about__body p {
-  color: var(--color-text-muted);
+  text-shadow: 0 1px 16px rgba(5, 11, 32, 0.4);
 }
 
 .about__body p:last-child { margin-bottom: 0; }

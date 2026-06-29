@@ -41,18 +41,9 @@
       onUpdate: (self) => {
         const done = self.progress >= 0.98;
         heroVideoWrap.classList.toggle('is-hidden', done);
-        aboutSection.classList.toggle('is-on-white', self.progress >= 0.15);
         document.body.classList.toggle('is-hero-done', done);
       },
     });
-
-    gsap.fromTo('.hero__fade', { opacity: 0 }, { opacity: 1, ease: 'none', scrollTrigger: { ...fadeScroll } });
-
-    gsap.fromTo(
-      heroVideoWrap,
-      { opacity: 1, filter: 'blur(0px)' },
-      { opacity: 0, filter: 'blur(12px)', ease: 'none', scrollTrigger: { ...fadeScroll } }
-    );
 
     gsap.fromTo(
       companiesSection,
