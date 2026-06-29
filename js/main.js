@@ -8,13 +8,8 @@
   /* ---- Hero video ---- */
   const heroVideo = document.querySelector('.hero__video');
   const heroVideoWrap = document.querySelector('.hero__video-wrap');
-  const aboutBody = document.querySelector('.about__body');
-  const aboutSection = document.getElementById('about');
-  const companiesSection = document.getElementById('companies');
 
-  if (heroVideo && heroVideoWrap && aboutBody && aboutSection && companiesSection) {
-    const getHeaderHeight = () => header?.offsetHeight ?? 76;
-
+  if (heroVideo && heroVideoWrap) {
     const playHero = () => {
       heroVideoWrap.classList.add('is-playing');
       heroVideo.play().catch(() => {});
@@ -26,30 +21,6 @@
     if (heroVideo.readyState >= 2) {
       playHero();
     }
-
-    const fadeScroll = {
-      trigger: aboutBody,
-      start: () => `top top+=${getHeaderHeight()}`,
-      endTrigger: companiesSection,
-      end: 'center center',
-      scrub: 0.6,
-      invalidateOnRefresh: true,
-    };
-
-    ScrollTrigger.create({
-      ...fadeScroll,
-      onUpdate: (self) => {
-        const done = self.progress >= 0.98;
-        heroVideoWrap.classList.toggle('is-hidden', done);
-        document.body.classList.toggle('is-hero-done', done);
-      },
-    });
-
-    gsap.fromTo(
-      companiesSection,
-      { opacity: 0 },
-      { opacity: 1, ease: 'none', scrollTrigger: { ...fadeScroll } }
-    );
   }
 
   /* ---- Header scroll ---- */
