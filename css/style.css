@@ -27,18 +27,6 @@
   --glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
   --link-circle-size: 2.5rem;
   --link-circle-size-sm: 2rem;
-  --link-circle-bg: radial-gradient(
-    circle at 32% 28%,
-    #ffffff 0%,
-    #eef3fa 52%,
-    rgba(255, 214, 214, 0.45) 100%
-  );
-  --link-circle-border: linear-gradient(
-    145deg,
-    var(--color-primary) 0%,
-    #8b1e2d 48%,
-    #e63946 100%
-  );
 }
 
 *, *::before, *::after {
@@ -827,29 +815,13 @@ html.is-menu-open {
   line-height: 1;
   color: var(--color-primary);
   border-radius: 50%;
-  background: var(--link-circle-bg);
+  background: #fff;
+  border: 1px solid var(--color-border);
+  overflow: visible;
   transition: transform 0.2s;
 }
 
 .link-circle::before {
-  content: '';
-  position: absolute;
-  inset: -2px;
-  border-radius: 50%;
-  padding: 1.5px;
-  background: var(--link-circle-border);
-  -webkit-mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask:
-    linear-gradient(#000 0 0) content-box,
-    linear-gradient(#000 0 0);
-  mask-composite: exclude;
-  pointer-events: none;
-}
-
-.link-circle::after {
   content: '';
   position: absolute;
   inset: -3px;
@@ -890,9 +862,9 @@ html.is-menu-open {
   transform: translateY(-2px);
 }
 
-.link-btn:hover .link-circle::after,
-.news__link:hover .link-circle::after,
-.footer__contact:hover .link-circle::after,
+.link-btn:hover .link-circle::before,
+.news__link:hover .link-circle::before,
+.footer__contact:hover .link-circle::before,
 .companies__nav-grid a:hover::after,
 .footer__nav-list a:hover::after,
 .footer__policy a:hover::after {
@@ -900,9 +872,9 @@ html.is-menu-open {
   animation: link-circle-ring 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
 }
 
-.link-btn:not(:hover) .link-circle::after,
-.news__link:not(:hover) .link-circle::after,
-.footer__contact:not(:hover) .link-circle::after,
+.link-btn:not(:hover) .link-circle::before,
+.news__link:not(:hover) .link-circle::before,
+.footer__contact:not(:hover) .link-circle::before,
 .companies__nav-grid a:not(:hover)::after,
 .footer__nav-list a:not(:hover)::after,
 .footer__policy a:not(:hover)::after {
@@ -912,9 +884,9 @@ html.is-menu-open {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .link-btn:hover .link-circle::after,
-  .news__link:hover .link-circle::after,
-  .footer__contact:hover .link-circle::after,
+  .link-btn:hover .link-circle::before,
+  .news__link:hover .link-circle::before,
+  .footer__contact:hover .link-circle::before,
   .companies__nav-grid a:hover::after,
   .footer__nav-list a:hover::after,
   .footer__policy a:hover::after {
@@ -1511,10 +1483,8 @@ html.is-menu-open {
   line-height: 1;
   color: var(--color-primary);
   border-radius: 50%;
-  background:
-    var(--link-circle-bg) padding-box,
-    var(--link-circle-border) border-box;
-  border: 1.5px solid transparent;
+  background: #fff;
+  border: 1px solid var(--color-border);
   transition: transform 0.2s;
 }
 
@@ -2786,10 +2756,8 @@ html.is-menu-open {
   line-height: 1;
   color: var(--color-primary);
   border-radius: 50%;
-  background:
-    var(--link-circle-bg) padding-box,
-    var(--link-circle-border) border-box;
-  border: 1.5px solid transparent;
+  background: #fff;
+  border: 1px solid var(--color-border);
 }
 
 .footer__nav-list a::after {
@@ -2986,10 +2954,8 @@ html.is-menu-open {
   line-height: 1;
   color: var(--color-primary);
   border-radius: 50%;
-  background:
-    var(--link-circle-bg) padding-box,
-    var(--link-circle-border) border-box;
-  border: 1.5px solid transparent;
+  background: #fff;
+  border: 1px solid var(--color-border);
 }
 
 .footer__policy a::after {
