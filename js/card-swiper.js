@@ -13,7 +13,7 @@
   const DURATION = prefersReducedMotion ? 0.01 : 0.7;
   const EASE = 'power2.inOut';
   const SWIPE_THRESHOLD = 48;
-  const AUTOPLAY_DELAY = 2500;
+  const AUTOPLAY_DELAY = 3000;
 
   const STACK = {
     active: { x: 0, y: 0, scale: 1, rotation: 0, opacity: 1, zIndex: 30 },
