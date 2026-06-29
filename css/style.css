@@ -378,9 +378,9 @@ address { font-style: normal; }
   grid-template-columns: minmax(0, 120px) max-content auto;
   gap: 20px;
   align-items: start;
-  width: 100%;
-  max-width: none;
-  margin-inline: 0;
+  width: fit-content;
+  max-width: 100%;
+  margin-inline: auto;
 }
 
 .mega-menu--wide .mega-menu__inner {
