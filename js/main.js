@@ -8,7 +8,7 @@
   /* ---- Hero video ---- */
   const heroVideo = document.querySelector('.hero__video');
   const heroVideoWrap = document.querySelector('.hero__video-wrap');
-  const heroStage = document.getElementById('heroStage');
+  const aboutSection = document.getElementById('about');
 
   if (heroVideo && heroVideoWrap) {
     const playHero = () => {
@@ -24,9 +24,9 @@
     }
   }
 
-  if (heroVideoWrap && heroStage) {
+  if (heroVideoWrap && aboutSection) {
     ScrollTrigger.create({
-      trigger: heroStage,
+      trigger: aboutSection,
       start: 'bottom top',
       onEnter: () => {
         heroVideoWrap.classList.add('is-hidden');
