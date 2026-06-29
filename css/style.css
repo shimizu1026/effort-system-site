@@ -967,6 +967,8 @@ html.is-menu-open {
 
 .hero__video-wrap.is-hidden {
   visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
 }
 
 .hero__fade {
@@ -2618,6 +2620,8 @@ html.is-menu-open {
 
 /* ---- Access ---- */
 .access {
+  position: relative;
+  z-index: 1;
   background: var(--color-bg-card);
   padding-bottom: 120px;
 }

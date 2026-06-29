@@ -8,7 +8,7 @@
   /* ---- Hero video ---- */
   const heroVideo = document.querySelector('.hero__video');
   const heroVideoWrap = document.querySelector('.hero__video-wrap');
-  const companiesSection = document.getElementById('companies');
+  const heroStage = document.getElementById('heroStage');
 
   if (heroVideo && heroVideoWrap) {
     const playHero = () => {
@@ -24,15 +24,17 @@
     }
   }
 
-  if (heroVideoWrap && companiesSection) {
+  if (heroVideoWrap && heroStage) {
     ScrollTrigger.create({
-      trigger: companiesSection,
-      start: 'top top',
+      trigger: heroStage,
+      start: 'bottom top',
       onEnter: () => {
         heroVideoWrap.classList.add('is-hidden');
+        heroVideo?.pause();
       },
       onLeaveBack: () => {
         heroVideoWrap.classList.remove('is-hidden');
+        heroVideo?.play().catch(() => {});
       },
     });
   }
