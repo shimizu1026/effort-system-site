@@ -2161,6 +2161,7 @@ html.is-menu-open {
   margin-inline: auto;
   outline: none;
   touch-action: pan-y;
+  overflow: visible;
 }
 
 .catalog .card-swiper__stage:focus-visible {
@@ -2180,7 +2181,6 @@ html.is-menu-open {
   top: 50%;
   left: 50%;
   width: min(100%, 400px);
-  transform: translate(-50%, -50%);
   will-change: transform, opacity;
 }
 
