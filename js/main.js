@@ -370,7 +370,7 @@
               <time class="news__date" datetime="${item.date}">${formatDate(item.date)}</time>
             </div>
           </div>
-          <span class="news__arrow" aria-hidden="true">→</span>
+          <span class="link-circle" aria-hidden="true">→</span>
         </a>
       </li>`;
       })
