@@ -423,16 +423,18 @@ address { font-style: normal; }
 
 .mega-menu__visual {
   grid-column: 2;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(0, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 16px;
+  align-items: start;
   min-width: 0;
 }
 
 .mega-menu__card {
   position: relative;
   display: block;
-  width: 100%;
+  flex: 0 1 300px;
+  width: min(100%, 300px);
   min-width: 0;
   max-width: 300px;
   border-radius: 8px;
