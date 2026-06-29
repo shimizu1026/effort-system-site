@@ -2036,7 +2036,7 @@ html.is-menu-open {
 .recruit {
   position: relative;
   z-index: 1;
-  background: transparent;
+  background: var(--color-bg);
   color: var(--color-text);
   overflow: hidden;
 }

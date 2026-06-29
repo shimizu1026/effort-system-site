@@ -8,6 +8,7 @@
   /* ---- Hero video ---- */
   const heroVideo = document.querySelector('.hero__video');
   const heroVideoWrap = document.querySelector('.hero__video-wrap');
+  const companiesSection = document.getElementById('companies');
 
   if (heroVideo && heroVideoWrap) {
     const playHero = () => {
@@ -21,6 +22,19 @@
     if (heroVideo.readyState >= 2) {
       playHero();
     }
+  }
+
+  if (heroVideoWrap && companiesSection) {
+    ScrollTrigger.create({
+      trigger: companiesSection,
+      start: 'top top',
+      onEnter: () => {
+        heroVideoWrap.classList.add('is-hidden');
+      },
+      onLeaveBack: () => {
+        heroVideoWrap.classList.remove('is-hidden');
+      },
+    });
   }
 
   /* ---- Header scroll ---- */
