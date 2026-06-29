@@ -1939,11 +1939,6 @@ html.is-menu-open {
 .recruit__inner {
   position: relative;
   z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 24px;
   text-align: center;
   max-width: none;
   margin-inline: auto;
@@ -1951,13 +1946,22 @@ html.is-menu-open {
 }
 
 .recruit__title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 5;
+  width: max-content;
+  max-width: min(90%, 480px);
   font-size: clamp(1.75rem, 4vw, 2.5rem);
   font-weight: 700;
   line-height: 1.4;
   letter-spacing: 0.06em;
   color: var(--color-primary);
+  text-align: center;
+  transform: translate(-50%, -50%);
   opacity: 1;
   visibility: visible;
+  pointer-events: none;
   transition:
     opacity var(--recruit-fade) cubic-bezier(0.4, 0, 0.2, 1),
     visibility 0s linear 0s;
@@ -2053,19 +2057,18 @@ html.is-menu-open {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: max-content;
-  max-width: 168px;
-  min-height: 88px;
-  padding: 14px 18px;
+  width: 136px;
+  height: 136px;
+  padding: 16px;
   margin: 0;
   background: rgba(5, 11, 32, 0.65);
   color: #fff;
-  font-size: 0.8125rem;
+  font-size: 0.75rem;
   font-weight: 700;
-  line-height: 1.45;
+  line-height: 1.35;
   letter-spacing: 0.02em;
   text-align: center;
-  border-radius: 999px;
+  border-radius: 50%;
   box-shadow: 0 12px 32px rgba(5, 11, 32, 0.12);
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.75);
@@ -2313,10 +2316,22 @@ html.is-menu-open {
   background: var(--color-bg-card);
 }
 
+.csr__layout {
+  display: grid;
+  grid-template-columns: minmax(200px, 280px) minmax(0, 1fr);
+  gap: clamp(48px, 8vw, 112px);
+  align-items: start;
+}
+
+.csr__header {
+  margin-bottom: 0;
+}
+
 .csr__list {
   display: flex;
   flex-direction: column;
   gap: 0;
+  min-width: 0;
 }
 
 .csr__item {
@@ -2359,6 +2374,13 @@ html.is-menu-open {
 
 .csr__empty {
   color: var(--color-text-muted);
+}
+
+@media (max-width: 768px) {
+  .csr__layout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
 }
 
 /* ---- Access ---- */
