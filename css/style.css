@@ -1248,13 +1248,13 @@ html.is-menu-open {
 }
 
 .companies__accordion {
-  --companies-panel-flex: 1;
   --companies-collapsed: clamp(56px, 5vw, 80px);
+  --companies-height: clamp(520px, 72vh, 760px);
   --companies-transition: 0.65s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   width: 100vw;
+  height: var(--companies-height);
   margin-left: calc(50% - 50vw);
-  min-height: clamp(560px, 92vh, 900px);
   border-top: 1px solid var(--color-border);
   border-bottom: 1px solid var(--color-border);
 }
@@ -1263,9 +1263,9 @@ html.is-menu-open {
   position: relative;
   flex: 1 1 0;
   min-width: 0;
+  height: 100%;
   overflow: hidden;
-  background: var(--color-bg-card);
-  border-right: 1px solid var(--color-border);
+  border-right: 1px solid rgba(5, 11, 32, 0.08);
   transition: flex var(--companies-transition);
 }
 
@@ -1274,15 +1274,15 @@ html.is-menu-open {
 }
 
 .companies__panel--effort-system {
-  background: linear-gradient(180deg, #f8fafc 0%, var(--color-bg-card) 100%);
+  background: #e8edf4;
 }
 
 .companies__panel--effort-advance {
-  background: linear-gradient(180deg, #f4f8fb 0%, var(--color-bg-card) 100%);
+  background: #dfe9f2;
 }
 
 .companies__panel--eft-sanyo {
-  background: linear-gradient(180deg, #f6f7fb 0%, var(--color-bg-card) 100%);
+  background: #e4e8f1;
 }
 
 .companies__spine {
@@ -1319,15 +1319,16 @@ html.is-menu-open {
 }
 
 .companies__inner {
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 1;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(240px, 36%);
-  gap: clamp(24px, 4vw, 48px);
+  grid-template-columns: minmax(0, 1fr) minmax(220px, 34%);
+  gap: clamp(20px, 3vw, 40px);
   align-items: center;
   height: 100%;
-  min-height: clamp(560px, 92vh, 900px);
-  padding: clamp(32px, 5vw, 72px);
+  padding: clamp(28px, 4vw, 56px);
+  overflow-y: auto;
   opacity: 0;
   visibility: hidden;
   transition:
@@ -1438,14 +1439,15 @@ html.is-menu-open {
   .companies__accordion {
     flex-direction: column;
     width: 100%;
+    height: auto;
     margin-left: 0;
-    min-height: auto;
   }
 
   .companies__panel {
     flex: none;
+    height: auto;
     border-right: none;
-    border-bottom: 1px solid var(--color-border);
+    border-bottom: 1px solid rgba(5, 11, 32, 0.08);
   }
 
   .companies__panel:last-child {
@@ -1470,8 +1472,10 @@ html.is-menu-open {
   }
 
   .companies__inner {
+    position: static;
     display: none;
-    min-height: auto;
+    height: auto;
+    overflow: visible;
     grid-template-columns: 1fr;
     padding: 0 24px 32px;
     opacity: 1;
