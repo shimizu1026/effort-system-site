@@ -2145,6 +2145,161 @@ html.is-menu-open {
   margin-top: 32px;
 }
 
+/* ---- Card Swiper ---- */
+.card-swiper {
+  position: relative;
+  z-index: 1;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(0, 180, 216, 0.12) 0%, transparent 45%),
+    radial-gradient(circle at 85% 80%, rgba(5, 11, 32, 0.06) 0%, transparent 40%),
+    linear-gradient(160deg, #e8f4f8 0%, var(--color-bg) 55%, #eef2f8 100%);
+  overflow: hidden;
+}
+
+.card-swiper__stage {
+  position: relative;
+  width: min(100%, 340px);
+  height: clamp(420px, 52vw, 520px);
+  margin-inline: auto;
+  outline: none;
+  touch-action: pan-y;
+}
+
+.card-swiper__stage:focus-visible {
+  box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.45);
+  border-radius: var(--radius);
+}
+
+.card-swiper__track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  list-style: none;
+}
+
+.card-swiper__slide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: min(100%, 300px);
+  transform: translate(-50%, -50%);
+  will-change: transform, opacity;
+}
+
+.card-swiper__card {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 12px;
+  background: var(--color-bg-card);
+  box-shadow: 0 20px 48px rgba(5, 11, 32, 0.16);
+  transition: box-shadow var(--transition);
+}
+
+.card-swiper__slide.is-active .card-swiper__card:hover {
+  box-shadow: 0 24px 56px rgba(5, 11, 32, 0.22);
+}
+
+.card-swiper__card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+}
+
+.card-swiper__label {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 4px;
+  padding: 20px 16px 16px;
+  text-align: right;
+  background: linear-gradient(transparent, rgba(5, 11, 32, 0.88));
+}
+
+.card-swiper__category {
+  font-family: var(--font-en);
+  font-size: var(--font-size-min);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  color: var(--color-accent);
+}
+
+.card-swiper__name {
+  font-size: 0.875rem;
+  font-weight: 700;
+  line-height: 1.5;
+  color: #fff;
+}
+
+.card-swiper__controls {
+  position: absolute;
+  right: -8px;
+  bottom: 0;
+  z-index: 40;
+  display: flex;
+  gap: 8px;
+}
+
+.card-swiper__btn {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  font-family: var(--font-en);
+  font-size: 1.125rem;
+  color: var(--color-primary);
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid var(--color-border);
+  border-radius: 50%;
+  box-shadow: 0 8px 24px rgba(5, 11, 32, 0.1);
+  cursor: pointer;
+  transition:
+    color var(--transition),
+    background var(--transition),
+    border-color var(--transition),
+    transform var(--transition);
+}
+
+.card-swiper__btn:hover {
+  color: #fff;
+  background: var(--color-primary);
+  border-color: var(--color-primary);
+}
+
+.card-swiper__btn:active {
+  transform: scale(0.96);
+}
+
+.card-swiper__empty {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .card-swiper__stage {
+    width: min(100%, 300px);
+    height: clamp(380px, 78vw, 460px);
+  }
+
+  .card-swiper__controls {
+    right: 0;
+  }
+
+  .card-swiper__btn {
+    width: 40px;
+    height: 40px;
+    font-size: 1rem;
+  }
+}
+
 /* ---- CSR ---- */
 .csr {
   position: relative;
