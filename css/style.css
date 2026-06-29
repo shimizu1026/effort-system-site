@@ -345,7 +345,11 @@ address { font-style: normal; }
   right: 0;
   top: calc(20px + 56px);
   z-index: 2;
-  padding: 20px 16px 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: calc(400px - 20px - 56px);
+  padding: 0 16px 32px;
   background: transparent;
   border: none;
   box-shadow: none;
@@ -354,6 +358,7 @@ address { font-style: normal; }
   transform: translateY(-8px);
   transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
   pointer-events: none;
+  box-sizing: border-box;
 }
 
 .mega-menu::before {
@@ -376,8 +381,9 @@ address { font-style: normal; }
 .mega-menu__inner {
   display: grid;
   grid-template-columns: minmax(0, 120px) max-content auto;
-  gap: 20px;
-  align-items: start;
+  column-gap: 48px;
+  row-gap: 0;
+  align-items: center;
   width: fit-content;
   max-width: 100%;
   margin-inline: auto;
@@ -385,6 +391,7 @@ address { font-style: normal; }
 
 .mega-menu--wide .mega-menu__inner {
   grid-template-columns: minmax(0, 120px) minmax(0, 1fr);
+  column-gap: 48px;
 }
 
 .mega-menu__label {
@@ -394,7 +401,6 @@ address { font-style: normal; }
   color: rgba(255, 255, 255, 0.55);
   letter-spacing: 0.06em;
   line-height: 1.6;
-  padding-top: 8px;
 }
 
 .mega-menu__links {
@@ -402,10 +408,9 @@ address { font-style: normal; }
   display: flex;
   flex-direction: column;
   gap: 12px;
-  padding-top: 8px;
   border-left: 1px solid rgba(255, 255, 255, 0.2);
   border-bottom: none;
-  padding-left: 16px;
+  padding-left: 24px;
   padding-bottom: 0;
   min-width: 0;
   list-style: none;
@@ -483,7 +488,6 @@ address { font-style: normal; }
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 12px 24px;
-  padding-top: 8px;
   min-width: 0;
 }
 
