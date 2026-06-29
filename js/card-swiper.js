@@ -10,7 +10,7 @@
   if (!track || !endpoint) return;
 
   const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  const DURATION = prefersReducedMotion ? 0.01 : 0.7;
+  const DURATION = prefersReducedMotion ? 0.01 : 0.4;
   const EASE = 'power2.inOut';
   const SWIPE_THRESHOLD = 48;
   const AUTOPLAY_DELAY = 3000;
