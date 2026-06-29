@@ -20,7 +20,7 @@
   --container-wide: 1520px;
   --radius: 6px;
   --transition: 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-  --font-size-min: 0.625rem; /* 10px @ 16px root — サイト内の下限 */
+  --font-size-min: 0.625rem; /* 11.25px @ 18px root — サイト内の下限 */
   --glass-bg: rgba(255, 255, 255, 0.1);
   --glass-blur: blur(32px) saturate(160%);
   --glass-border: 1px solid rgba(255, 255, 255, 0.22);
@@ -37,12 +37,13 @@
 
 html {
   scroll-behavior: smooth;
-  font-size: 16px;
+  font-size: 18px;
   scrollbar-gutter: stable;
 }
 
 body {
   font-family: var(--font-ja);
+  font-size: 1rem;
   color: var(--color-text);
   background: var(--color-bg);
   line-height: 1.8;
