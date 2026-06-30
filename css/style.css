@@ -1860,8 +1860,8 @@ html.is-menu-open {
 
 .news__link {
   display: grid;
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: 20px;
+  grid-template-columns: auto auto minmax(0, 1fr) auto;
+  gap: 12px 20px;
   align-items: center;
   padding: 20px 0;
   transition: color var(--transition);
@@ -1869,13 +1869,6 @@ html.is-menu-open {
 
 .news__link:hover {
   color: var(--color-primary);
-}
-
-.news__media {
-  display: flex;
-  align-items: stretch;
-  gap: 12px;
-  flex-shrink: 0;
 }
 
 .news__body {
@@ -1896,7 +1889,9 @@ html.is-menu-open {
   display: flex;
   align-items: center;
   justify-content: center;
+  align-self: stretch;
   flex-shrink: 0;
+  padding-inline: 2px;
   font-family: var(--font-en);
   font-size: 0.8125rem;
   font-weight: 600;
@@ -1948,14 +1943,10 @@ html.is-menu-open {
 }
 
 .news__item--featured .news__link {
-  grid-template-columns: auto minmax(0, 1fr) auto;
-  gap: clamp(20px, 3vw, 32px);
+  grid-template-columns: auto minmax(180px, 280px) minmax(0, 1fr) auto;
+  gap: clamp(12px, 2vw, 20px) clamp(20px, 3vw, 32px);
   padding: 32px 0;
   align-items: center;
-}
-
-.news__item--featured .news__media {
-  gap: clamp(12px, 2vw, 20px);
 }
 
 .news__item--featured .news__thumb {
@@ -2021,12 +2012,8 @@ html.is-menu-open {
 
 @media (max-width: 600px) {
   .news__link {
-    grid-template-columns: auto minmax(0, 1fr) auto;
-    gap: 12px;
-  }
-
-  .news__media {
-    gap: 8px;
+    grid-template-columns: auto 80px minmax(0, 1fr) auto;
+    gap: 8px 12px;
   }
 
   .news__thumb {
@@ -2039,17 +2026,18 @@ html.is-menu-open {
   }
 
   .news__item--featured .news__link {
-    grid-template-columns: 1fr auto;
+    grid-template-columns: auto 1fr auto;
     grid-template-areas:
-      'media media'
-      'body arrow';
+      'date thumb thumb'
+      'body body arrow';
   }
 
-  .news__item--featured .news__media {
-    grid-area: media;
+  .news__item--featured .news__date {
+    grid-area: date;
   }
 
   .news__item--featured .news__thumb {
+    grid-area: thumb;
     width: 100%;
     aspect-ratio: 16 / 10;
   }
