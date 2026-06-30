@@ -2924,7 +2924,7 @@ html.is-menu-open {
 
 .footer__copy {
   flex-shrink: 0;
-  font-size: 0.75rem;
+  font-size: 0.625rem;
 }
 
 @media (max-width: 1024px) {
