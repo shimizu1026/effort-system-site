@@ -349,7 +349,7 @@
         <a href="${item.url}" class="news__link">
           <time class="news__date" datetime="${item.date}">${formatDate(item.date)}</time>
           <div class="news__thumb">
-            <img src="${image}" alt="" width="${isFeatured ? 280 : 100}" height="${isFeatured ? 210 : 72}" loading="lazy" />
+            <img src="${image}" alt="" width="${isFeatured ? 280 : 160}" height="${isFeatured ? 210 : 120}" loading="lazy" />
           </div>
           <div class="news__body">
             <span class="news__title">${item.title}</span>
