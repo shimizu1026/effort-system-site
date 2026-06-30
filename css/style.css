@@ -1860,7 +1860,7 @@ html.is-menu-open {
 
 .news__link {
   display: grid;
-  grid-template-columns: 100px minmax(0, 1fr) auto;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   gap: 20px;
   align-items: center;
   padding: 20px 0;
@@ -1869,6 +1869,13 @@ html.is-menu-open {
 
 .news__link:hover {
   color: var(--color-primary);
+}
+
+.news__media {
+  display: flex;
+  align-items: stretch;
+  gap: 12px;
+  flex-shrink: 0;
 }
 
 .news__body {
@@ -1886,10 +1893,18 @@ html.is-menu-open {
 }
 
 .news__date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
   font-family: var(--font-en);
   font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.4;
+  letter-spacing: 0.08em;
   color: var(--color-text-muted);
-  letter-spacing: 0.04em;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
 }
 
 .news__title {
@@ -1933,14 +1948,18 @@ html.is-menu-open {
 }
 
 .news__item--featured .news__link {
-  grid-template-columns: minmax(180px, 280px) minmax(0, 1fr) auto;
+  grid-template-columns: auto minmax(0, 1fr) auto;
   gap: clamp(20px, 3vw, 32px);
   padding: 32px 0;
   align-items: center;
 }
 
+.news__item--featured .news__media {
+  gap: clamp(12px, 2vw, 20px);
+}
+
 .news__item--featured .news__thumb {
-  width: 100%;
+  width: min(100%, 280px);
   height: auto;
   aspect-ratio: 4 / 3;
   border-radius: 12px;
@@ -2002,8 +2021,12 @@ html.is-menu-open {
 
 @media (max-width: 600px) {
   .news__link {
-    grid-template-columns: 80px minmax(0, 1fr) auto;
+    grid-template-columns: auto minmax(0, 1fr) auto;
     gap: 12px;
+  }
+
+  .news__media {
+    gap: 8px;
   }
 
   .news__thumb {
@@ -2011,15 +2034,23 @@ html.is-menu-open {
     height: 60px;
   }
 
+  .news__date {
+    font-size: 0.75rem;
+  }
+
   .news__item--featured .news__link {
     grid-template-columns: 1fr auto;
     grid-template-areas:
-      'thumb thumb'
+      'media media'
       'body arrow';
   }
 
+  .news__item--featured .news__media {
+    grid-area: media;
+  }
+
   .news__item--featured .news__thumb {
-    grid-area: thumb;
+    width: 100%;
     aspect-ratio: 16 / 10;
   }
 
