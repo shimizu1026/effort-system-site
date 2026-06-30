@@ -2913,7 +2913,7 @@ html.is-menu-open {
 }
 
 .footer__policy a {
-  font-size: 0.8125rem;
+  font-size: 0.625rem;
   color: rgba(255, 255, 255, 0.55);
   transition: color var(--transition);
 }
