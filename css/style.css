@@ -1342,7 +1342,7 @@ html.is-menu-open {
 /* ---- Companies ---- */
 .companies {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   background: var(--color-bg);
   padding-bottom: 0;
 }
@@ -1664,7 +1664,7 @@ html.is-menu-open {
 /* ---- News ---- */
 .news {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   background: var(--color-bg-card);
 }
 
@@ -2062,7 +2062,7 @@ html.is-menu-open {
 /* ---- Recruit ---- */
 .recruit {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   background: var(--color-bg);
   color: var(--color-text);
   overflow: hidden;
@@ -2421,7 +2421,7 @@ html.is-menu-open {
 /* ---- Catalog ---- */
 .catalog {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   background: var(--color-bg);
 }
 
@@ -2572,7 +2572,7 @@ html.is-menu-open {
 /* ---- CSR ---- */
 .csr {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   background: var(--color-bg-card);
 }
 
@@ -2646,7 +2646,7 @@ html.is-menu-open {
 /* ---- Access ---- */
 .access {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   background: var(--color-bg-card);
   padding-bottom: 120px;
 }
@@ -2698,7 +2698,7 @@ html.is-menu-open {
 /* ---- Footer ---- */
 .footer {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   background: var(--color-bg-dark);
   color: rgba(255, 255, 255, 0.6);
   padding: 64px clamp(24px, 3vw, 48px) 32px;
