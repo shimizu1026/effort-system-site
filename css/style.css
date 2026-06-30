@@ -1891,10 +1891,11 @@ html.is-menu-open {
   justify-content: flex-start;
   align-self: start;
   flex-shrink: 0;
+  margin-right: -10px;
   padding-inline: 2px;
   font-family: var(--font-en);
   font-size: 0.8125rem;
-  font-weight: 600;
+  font-weight: 500;
   line-height: 1.4;
   letter-spacing: 0.08em;
   color: var(--color-text-muted);
@@ -1911,7 +1912,7 @@ html.is-menu-open {
 .news__category {
   display: inline-flex;
   padding: 4px 12px;
-  font-size: var(--font-size-min);
+  font-size: 0.75rem;
   color: var(--color-text-muted);
   background: var(--color-bg);
   border-radius: 999px;
@@ -1960,7 +1961,9 @@ html.is-menu-open {
 
 .news__item--featured .news__date {
   font-size: 0.875rem;
+  font-weight: 500;
   align-self: start;
+  margin-right: clamp(-16px, -1.2vw, -10px);
 }
 
 .news__item--featured .news__body {
