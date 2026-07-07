@@ -2202,6 +2202,7 @@ html.is-menu-open {
   min-height: clamp(640px, 78vh, 920px);
   padding-block: 48px;
   isolation: isolate;
+  --recruit-visual-width: min(100%, 720px);
   --recruit-gather: 1s;
   --recruit-fade: 0.35s;
   --recruit-reveal: 0.45s;
@@ -2227,6 +2228,7 @@ html.is-menu-open {
     right var(--recruit-gather) cubic-bezier(0.4, 0, 0.2, 1),
     bottom var(--recruit-gather) cubic-bezier(0.4, 0, 0.2, 1),
     left var(--recruit-gather) cubic-bezier(0.4, 0, 0.2, 1),
+    width var(--recruit-gather) cubic-bezier(0.4, 0, 0.2, 1),
     transform var(--recruit-gather) cubic-bezier(0.4, 0, 0.2, 1),
     opacity var(--recruit-fade) cubic-bezier(0.4, 0, 0.2, 1),
     visibility 0s linear var(--recruit-fade);
@@ -2268,7 +2270,17 @@ html.is-menu-open {
   right: auto;
   bottom: auto;
   left: 50%;
+  width: var(--recruit-visual-width);
+  aspect-ratio: 16 / 9;
   transform: translate(-50%, -50%);
+}
+
+.recruit__link.is-active .recruit__title {
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--recruit-fade) cubic-bezier(0.4, 0, 0.2, 1),
+    visibility 0s linear var(--recruit-fade);
 }
 
 .recruit__link.is-active .recruit__photo--1 {
@@ -2343,7 +2355,7 @@ html.is-menu-open {
 .recruit__visual {
   position: relative;
   z-index: 1;
-  max-width: min(100%, 720px);
+  max-width: var(--recruit-visual-width);
   margin: 0 auto;
   opacity: 0;
   visibility: hidden;
@@ -2453,6 +2465,7 @@ html.is-menu-open {
 @media (max-width: 900px) {
   .recruit__scene {
     min-height: 560px;
+    --recruit-visual-width: min(100%, 520px);
   }
 
   .recruit__photo--1 {
@@ -2472,13 +2485,13 @@ html.is-menu-open {
   .recruit__photo--4 {
     width: clamp(160px, 36vw, 260px);
   }
-
-  .recruit__visual {
-    max-width: min(100%, 520px);
-  }
 }
 
 @media (max-width: 600px) {
+  .recruit__scene {
+    --recruit-visual-width: min(100%, 300px);
+  }
+
   .recruit__photos {
     opacity: 0.4;
   }
@@ -2499,10 +2512,6 @@ html.is-menu-open {
 
   .recruit__photo--4 {
     width: clamp(112px, 38vw, 150px);
-  }
-
-  .recruit__visual {
-    max-width: min(100%, 300px);
   }
 }
 
