@@ -1096,8 +1096,6 @@ html.is-menu-open {
   overflow: hidden;
   padding-block: 0.08em;
   white-space: nowrap;
-  transform: rotate(-10deg);
-  transform-origin: 100% 50%;
 }
 
 .hero__title-comma {
@@ -1123,6 +1121,8 @@ html.is-menu-open {
   display: block;
   position: relative;
   font-family: var(--font-ja-mincho);
+  font-style: oblique 10deg;
+  font-synthesis: style;
   transform: translateY(110%);
   backface-visibility: hidden;
   --hero-white: 0;
@@ -1283,10 +1283,6 @@ html.is-menu-open {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero__title-line {
-    transform: none;
-  }
-
   .hero__title-text,
   .hero__lead-line,
   .hero__scroll {
