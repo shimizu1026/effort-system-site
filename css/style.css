@@ -1195,7 +1195,7 @@ html.is-menu-open {
 }
 
 .hero__area-btn + .hero__area-btn {
-  margin-left: clamp(-2.25rem, -3vw, -1.75rem);
+  margin-left: clamp(-1.125rem, -1.5vw, -0.75rem);
 }
 
 .hero__area-btn::before {
@@ -1322,7 +1322,7 @@ html.is-menu-open {
   }
 
   .hero__area-btn + .hero__area-btn {
-    margin-left: -1.75rem;
+    margin-left: -0.875rem;
   }
 
   .hero__scroll { display: none; }
@@ -1346,7 +1346,7 @@ html.is-menu-open {
   }
 
   .hero__area-btn + .hero__area-btn {
-    margin-left: -1.5rem;
+    margin-left: -0.75rem;
   }
 }
 
