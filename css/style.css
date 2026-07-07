@@ -1416,6 +1416,15 @@ html.is-menu-open {
   --companies-collapsed: clamp(56px, 5vw, 80px);
   --companies-height: clamp(520px, 72vh, 760px);
   --companies-spine-gap: 0.375rem;
+  --companies-spine-num-height: 1.125rem;
+  --companies-spine-title-chars: 15;
+  --companies-spine-title-height: calc(
+    var(--companies-spine-title-chars) * 1em * 1.6
+  );
+  --companies-spine-block-height: calc(
+    var(--companies-spine-num-height) + var(--companies-spine-gap) +
+      var(--companies-spine-title-height)
+  );
   --companies-transition: 0.65s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   width: 100vw;
@@ -1453,23 +1462,24 @@ html.is-menu-open {
 
 .companies__spine {
   position: absolute;
-  top: 50%;
+  top: calc(50% - var(--companies-spine-block-height) / 2);
   left: 0;
   right: 0;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
   gap: var(--companies-spine-gap);
+  height: var(--companies-spine-block-height);
   width: 100%;
   padding: 0 12px;
   pointer-events: none;
-  transform: translateY(-50%);
   transition: opacity 0.35s ease;
 }
 
 .companies__spine-num {
-  flex: 0 0 auto;
+  flex: 0 0 var(--companies-spine-num-height);
   font-family: var(--font-en);
   font-size: 1.125rem;
   font-weight: 700;
@@ -1481,9 +1491,8 @@ html.is-menu-open {
 }
 
 .companies__spine-title {
-  flex: 0 0 auto;
+  flex: 0 0 var(--companies-spine-title-height);
   width: max-content;
-  height: auto;
   margin: 0;
   font-size: 1rem;
   font-weight: 700;
@@ -1699,7 +1708,7 @@ html.is-menu-open {
     top: auto;
     left: auto;
     right: auto;
-    transform: none;
+    height: auto;
     flex-direction: row;
     justify-content: flex-start;
     gap: 16px;
