@@ -1546,10 +1546,10 @@ html.is-menu-open {
   font-weight: 700;
   line-height: 1.5;
   color: var(--color-primary);
+  /* Safari: a 自体は動かさず色変化のみ */
   transition:
     color var(--transition),
-    border-color var(--transition),
-    transform 0.2s;
+    border-color var(--transition);
 }
 
 .companies__nav-grid a::before {
@@ -1570,7 +1570,9 @@ html.is-menu-open {
   border-radius: 50%;
   background: #fff;
   border: 1px solid var(--color-border);
+  /* 絶対配置の子はここで個別に動かす */
   transition: transform 0.2s;
+  will-change: transform;
 }
 
 .companies__nav-grid a::after {
@@ -1605,7 +1607,10 @@ html.is-menu-open {
 .companies__nav-grid a:hover {
   color: var(--color-accent);
   border-color: rgba(0, 180, 216, 0.35);
-  transform: translateY(-2px);
+}
+
+.companies__nav-grid a:hover::before {
+  transform: translateY(calc(-50% - 2px));
 }
 
 .companies__media {
