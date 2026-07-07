@@ -1096,16 +1096,19 @@ html.is-menu-open {
   overflow: hidden;
   padding-block: 0.08em;
   white-space: nowrap;
+  transform: skewX(-10deg);
+  transform-origin: 100% 50%;
 }
 
 .hero__title-comma {
   display: inline-block;
-  margin-inline: -0.1em -0.06em;
-  letter-spacing: -0.2em;
+  margin-left: -0.06em;
+  margin-right: -0.16em;
 }
 
 .hero__title-period {
   display: inline-block;
+  margin-left: -0.14em;
   font-size: 0.85em;
   line-height: 1;
   vertical-align: 0.08em;
@@ -1121,8 +1124,6 @@ html.is-menu-open {
   display: block;
   position: relative;
   font-family: var(--font-ja-mincho);
-  font-style: oblique 10deg;
-  font-synthesis: style;
   transform: translateY(110%);
   backface-visibility: hidden;
   --hero-white: 0;
@@ -1283,6 +1284,10 @@ html.is-menu-open {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .hero__title-line {
+    transform: none;
+  }
+
   .hero__title-text,
   .hero__lead-line,
   .hero__scroll {
