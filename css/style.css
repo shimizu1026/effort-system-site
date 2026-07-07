@@ -2,6 +2,14 @@
    EFFORT GROUP — Design System
    ======================================== */
 
+@font-face {
+  font-family: 'Hannari Mincho';
+  src: url('../assets/fonts/hannari/HannariMincho-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 :root {
   --color-bg: #f4f6f9;
   --color-bg-dark: #050B20;
@@ -15,6 +23,7 @@
   --color-border: #d8dfe9;
   --font-ja: 'Noto Sans JP', sans-serif;
   --font-ja-mincho: 'Zen Old Mincho', 'Yu Mincho', 'Hiragino Mincho ProN', serif;
+  --font-hero-copy: 'Hannari Mincho', var(--font-ja-mincho);
   --font-en: 'Outfit', sans-serif;
   --container: 1360px;
   --container-wide: 1520px;
@@ -1139,7 +1148,7 @@ html.is-menu-open {
 .hero__title-text {
   display: block;
   position: relative;
-  font-family: var(--font-ja-mincho);
+  font-family: var(--font-hero-copy);
   transform: translateY(110%);
   backface-visibility: hidden;
   --hero-white: 0;
