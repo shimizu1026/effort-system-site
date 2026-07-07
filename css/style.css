@@ -1096,6 +1096,21 @@ html.is-menu-open {
   overflow: hidden;
   padding-block: 0.08em;
   white-space: nowrap;
+  transform: rotate(-10deg);
+  transform-origin: 100% 50%;
+}
+
+.hero__title-comma {
+  display: inline-block;
+  margin-inline: -0.1em -0.06em;
+  letter-spacing: -0.2em;
+}
+
+.hero__title-period {
+  display: inline-block;
+  font-size: 0.85em;
+  line-height: 1;
+  vertical-align: 0.08em;
 }
 
 @property --hero-white {
@@ -1268,6 +1283,10 @@ html.is-menu-open {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  .hero__title-line {
+    transform: none;
+  }
+
   .hero__title-text,
   .hero__lead-line,
   .hero__scroll {
