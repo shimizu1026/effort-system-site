@@ -1502,17 +1502,20 @@ html.is-menu-open {
 }
 
 .companies__content {
+  position: relative;
   min-width: 0;
+  padding-top: clamp(2.5rem, 4vw, 3.5rem);
 }
 
 .companies__num {
-  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
   font-family: var(--font-en);
   font-size: clamp(2rem, 4vw, 2.75rem);
   font-weight: 700;
   line-height: 1;
   color: rgba(5, 11, 32, 0.12);
-  margin-bottom: 20px;
 }
 
 .companies__name {
