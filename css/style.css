@@ -1462,15 +1462,20 @@ html.is-menu-open {
   inset: 0;
   z-index: 2;
   display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-inline: 12px;
+  pointer-events: none;
+  transition: opacity 0.35s ease;
+}
+
+.companies__spine-inner {
+  display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
   gap: var(--companies-spine-gap);
-  box-sizing: border-box;
-  padding-block: calc((100% - var(--companies-spine-block-height-ref)) / 2);
-  padding-inline: 12px;
-  pointer-events: none;
-  transition: opacity 0.35s ease;
+  height: var(--companies-spine-block-height-ref);
 }
 
 .companies__spine-num {
@@ -1488,7 +1493,6 @@ html.is-menu-open {
 .companies__spine-title {
   flex: 0 0 auto;
   width: max-content;
-  height: auto;
   margin: 0;
   font-size: 1rem;
   font-weight: 700;
@@ -1703,17 +1707,27 @@ html.is-menu-open {
     position: relative;
     inset: auto;
     flex-direction: row;
+    align-items: center;
     justify-content: flex-start;
-    gap: 16px;
+    gap: 0;
     min-height: 72px;
     padding: 20px 24px;
     cursor: pointer;
     pointer-events: auto;
   }
 
+  .companies__spine-inner {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 12px;
+    height: auto;
+  }
+
   .companies__spine-num,
   .companies__spine-title {
     flex: none;
+    width: auto;
     height: auto;
     writing-mode: horizontal-tb;
     text-orientation: mixed;
