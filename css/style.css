@@ -1415,6 +1415,16 @@ html.is-menu-open {
 .companies__accordion {
   --companies-collapsed: clamp(56px, 5vw, 80px);
   --companies-height: clamp(520px, 72vh, 760px);
+  --companies-spine-gap: 1.25rem;
+  --companies-spine-num-height: calc(2 * 1.125em * 1.6);
+  --companies-spine-title-chars: 15;
+  --companies-spine-title-height: calc(
+    var(--companies-spine-title-chars) * 1em * 1.6
+  );
+  --companies-spine-block-height: calc(
+    var(--companies-spine-num-height) + var(--companies-spine-gap) +
+      var(--companies-spine-title-height)
+  );
   --companies-transition: 0.65s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   width: 100vw;
@@ -1426,9 +1436,6 @@ html.is-menu-open {
 
 .companies__panel {
   position: relative;
-  display: grid;
-  grid-template-rows: 1fr auto 1fr;
-  grid-template-columns: minmax(0, 1fr);
   flex: 1 1 0;
   min-width: 0;
   height: 100%;
@@ -1454,33 +1461,36 @@ html.is-menu-open {
 }
 
 .companies__spine {
-  position: relative;
-  grid-row: 2;
-  grid-column: 1;
+  position: absolute;
+  top: calc((100% - var(--companies-spine-block-height)) / 2);
+  left: 0;
+  right: 0;
   z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
-  gap: 20px;
-  justify-self: center;
-  align-self: start;
-  width: 100%;
-  padding: 24px 12px;
+  gap: var(--companies-spine-gap);
+  height: var(--companies-spine-block-height);
+  padding: 0 12px;
   pointer-events: none;
   transition: opacity 0.35s ease;
 }
 
 .companies__spine-num {
+  flex: 0 0 var(--companies-spine-num-height);
   font-family: var(--font-en);
   font-size: 1.125rem;
   font-weight: 700;
   letter-spacing: 0.12em;
   color: rgba(5, 11, 32, 0.35);
   writing-mode: vertical-rl;
+  text-orientation: upright;
 }
 
 .companies__spine-title {
+  flex: 0 0 var(--companies-spine-title-height);
+  margin: 0;
   font-size: 1rem;
   font-weight: 700;
   line-height: 1.6;
@@ -1676,7 +1686,6 @@ html.is-menu-open {
   }
 
   .companies__panel {
-    display: block;
     flex: none;
     height: auto;
     border-right: none;
@@ -1689,11 +1698,13 @@ html.is-menu-open {
 
   .companies__spine {
     position: relative;
-    grid-row: auto;
-    grid-column: auto;
+    top: auto;
+    left: auto;
+    right: auto;
     flex-direction: row;
     justify-content: flex-start;
     gap: 16px;
+    height: auto;
     min-height: 72px;
     padding: 20px 24px;
     cursor: pointer;
@@ -1702,6 +1713,7 @@ html.is-menu-open {
 
   .companies__spine-num,
   .companies__spine-title {
+    flex: none;
     writing-mode: horizontal-tb;
     text-orientation: mixed;
   }
