@@ -1100,7 +1100,7 @@ html.is-menu-open {
   font-weight: 300;
   line-height: 1.45;
   width: 100%;
-  --hero-title-align-inset: 0.22em;
+  --hero-title-align-offset: 0.22em;
 }
 
 .hero__title-line {
@@ -1109,9 +1109,8 @@ html.is-menu-open {
   width: 100%;
   overflow: hidden;
   padding-block: 0.08em;
-  padding-right: var(--hero-title-align-inset);
   white-space: nowrap;
-  transform: skewX(-10deg);
+  transform: skewX(-10deg) translateX(var(--hero-title-align-offset));
   transform-origin: 100% 50%;
 }
 
@@ -1310,7 +1309,6 @@ html.is-menu-open {
 @media (prefers-reduced-motion: reduce) {
   .hero__title-line {
     transform: none;
-    padding-right: 0;
   }
 
   .hero__title-text,
