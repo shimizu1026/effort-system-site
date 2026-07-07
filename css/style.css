@@ -1069,15 +1069,11 @@ html.is-menu-open {
   max-width: none;
   margin-inline: 0;
   padding-inline: clamp(24px, 5vw, 80px) clamp(96px, 8vw, 360px);
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
   color: #fff;
 }
 
 .hero__copy {
-  width: fit-content;
-  max-width: 100%;
+  width: 100%;
   text-align: right;
 }
 
@@ -1104,6 +1100,7 @@ html.is-menu-open {
   font-weight: 300;
   line-height: 1.45;
   width: 100%;
+  --hero-title-align-inset: 0.22em;
 }
 
 .hero__title-line {
@@ -1112,6 +1109,7 @@ html.is-menu-open {
   width: 100%;
   overflow: hidden;
   padding-block: 0.08em;
+  padding-right: var(--hero-title-align-inset);
   white-space: nowrap;
   transform: skewX(-10deg);
   transform-origin: 100% 50%;
@@ -1138,13 +1136,6 @@ html.is-menu-open {
   font-size: 0.85em;
   line-height: 1;
   vertical-align: 0.08em;
-}
-
-.hero__lead-text {
-  display: block;
-  width: 100%;
-  transform: skewX(-10deg);
-  transform-origin: 100% 50%;
 }
 
 @property --hero-white {
@@ -1317,9 +1308,9 @@ html.is-menu-open {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero__title-line,
-  .hero__lead-text {
+  .hero__title-line {
     transform: none;
+    padding-right: 0;
   }
 
   .hero__title-text,
