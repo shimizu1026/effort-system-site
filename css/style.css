@@ -1371,7 +1371,7 @@ html.is-menu-open {
 .about__inner {
   position: relative;
   z-index: 1;
-  max-width: 860px;
+  max-width: 1000px;
   margin-inline: auto;
   text-align: center;
 }
