@@ -1416,7 +1416,23 @@ html.is-menu-open {
   --companies-collapsed: clamp(56px, 5vw, 80px);
   --companies-height: clamp(520px, 72vh, 760px);
   --companies-spine-gap: 0.375rem;
+  --companies-spine-num-height: 1.125rem;
   --companies-spine-title-chars-ref: 14;
+  --companies-spine-title-line: 1.6em;
+  --companies-spine-title-spacing: 0.08em;
+  --companies-spine-title-height-ref: calc(
+    var(--companies-spine-title-chars-ref) * var(--companies-spine-title-line) +
+      (var(--companies-spine-title-chars-ref) - 1) *
+      var(--companies-spine-title-spacing)
+  );
+  --companies-spine-block-height-ref: calc(
+    var(--companies-spine-num-height) + var(--companies-spine-gap) +
+      var(--companies-spine-title-height-ref)
+  );
+  --companies-spine-title-top: calc(
+    50% - var(--companies-spine-block-height-ref) / 2 +
+      var(--companies-spine-num-height) + var(--companies-spine-gap)
+  );
   --companies-transition: 0.65s cubic-bezier(0.4, 0, 0.2, 1);
   display: flex;
   width: 100vw;
@@ -1441,44 +1457,33 @@ html.is-menu-open {
 }
 
 .companies__panel--effort-system {
-  --companies-spine-title-chars: 13;
   background: #e8edf4;
 }
 
 .companies__panel--effort-advance {
-  --companies-spine-title-chars: 14;
   background: #dfe9f2;
 }
 
 .companies__panel--eft-sanyo {
-  --companies-spine-title-chars: 11;
   background: #e4e8f1;
 }
 
 .companies__spine {
   position: absolute;
-  top: 50%;
-  left: 0;
-  right: 0;
+  inset: 0;
   z-index: 2;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: var(--companies-spine-gap);
-  width: 100%;
-  padding: 0 12px;
   pointer-events: none;
-  transform: translateY(
-    calc(
-      -50% + (var(--companies-spine-title-chars) - var(--companies-spine-title-chars-ref)) *
-        1em * 1.6 / 2
-    )
-  );
   transition: opacity 0.35s ease;
 }
 
 .companies__spine-num {
-  flex: 0 0 auto;
+  position: absolute;
+  top: calc(
+    var(--companies-spine-title-top) - var(--companies-spine-num-height) -
+      var(--companies-spine-gap)
+  );
+  left: 50%;
+  transform: translateX(-50%);
   font-family: var(--font-en);
   font-size: 1.125rem;
   font-weight: 700;
@@ -1490,9 +1495,11 @@ html.is-menu-open {
 }
 
 .companies__spine-title {
-  flex: 0 0 auto;
+  position: absolute;
+  top: var(--companies-spine-title-top);
+  left: 50%;
+  transform: translateX(-50%);
   width: max-content;
-  height: auto;
   margin: 0;
   font-size: 1rem;
   font-weight: 700;
@@ -1705,10 +1712,8 @@ html.is-menu-open {
 
   .companies__spine {
     position: relative;
-    top: auto;
-    left: auto;
-    right: auto;
-    transform: none;
+    inset: auto;
+    display: flex;
     flex-direction: row;
     justify-content: flex-start;
     gap: 16px;
@@ -1720,8 +1725,10 @@ html.is-menu-open {
 
   .companies__spine-num,
   .companies__spine-title {
-    flex: none;
-    height: auto;
+    position: static;
+    top: auto;
+    left: auto;
+    transform: none;
     writing-mode: horizontal-tb;
     text-orientation: mixed;
   }
