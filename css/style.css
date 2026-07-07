@@ -1078,6 +1078,7 @@ html.is-menu-open {
 
 .hero__lead-line {
   display: block;
+  overflow: hidden;
   text-shadow: 0 1px 12px rgba(5, 11, 32, 0.28);
   transform: translateY(110%);
   backface-visibility: hidden;
@@ -1102,16 +1103,31 @@ html.is-menu-open {
 
 .hero__title-comma {
   display: inline-block;
-  margin-left: -0.06em;
-  margin-right: -0.16em;
+  margin-right: -0.22em;
 }
 
-.hero__title-period {
+.hero__title-ni {
   display: inline-block;
-  margin-left: -0.14em;
+  margin-left: -0.1em;
+}
+
+.hero__title-o {
+  display: inline-block;
+  margin-right: -0.12em;
+}
+
+.hero__title-period,
+.hero__lead-period {
+  display: inline-block;
   font-size: 0.85em;
   line-height: 1;
   vertical-align: 0.08em;
+}
+
+.hero__lead-text {
+  display: block;
+  transform: skewX(-10deg);
+  transform-origin: 100% 50%;
 }
 
 @property --hero-white {
@@ -1284,7 +1300,8 @@ html.is-menu-open {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero__title-line {
+  .hero__title-line,
+  .hero__lead-text {
     transform: none;
   }
 
