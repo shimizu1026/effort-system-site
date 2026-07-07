@@ -1416,7 +1416,7 @@ html.is-menu-open {
   --companies-collapsed: clamp(56px, 5vw, 80px);
   --companies-height: clamp(520px, 72vh, 760px);
   --companies-spine-gap: 0.375rem;
-  --companies-spine-row-height: calc(
+  --companies-spine-block-height: calc(
     1.125rem + var(--companies-spine-gap) + 15 * 1em * 1.6
   );
   --companies-transition: 0.65s cubic-bezier(0.4, 0, 0.2, 1);
@@ -1430,8 +1430,9 @@ html.is-menu-open {
 
 .companies__panel {
   position: relative;
-  display: grid;
-  grid-template-rows: 1fr var(--companies-spine-row-height) 1fr;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   flex: 1 1 0;
   min-width: 0;
   height: 100%;
@@ -1457,7 +1458,6 @@ html.is-menu-open {
 }
 
 .companies__spine {
-  grid-row: 2;
   position: relative;
   z-index: 2;
   display: flex;
@@ -1465,8 +1465,7 @@ html.is-menu-open {
   align-items: center;
   justify-content: flex-start;
   gap: var(--companies-spine-gap);
-  justify-self: center;
-  align-self: start;
+  min-height: var(--companies-spine-block-height);
   width: 100%;
   padding: 0 12px;
   pointer-events: none;
@@ -1487,6 +1486,7 @@ html.is-menu-open {
 
 .companies__spine-title {
   flex: 0 0 auto;
+  height: calc(15 * 1em * 1.6);
   margin: 0;
   font-size: 1rem;
   font-weight: 700;
@@ -1698,7 +1698,6 @@ html.is-menu-open {
   }
 
   .companies__spine {
-    grid-row: auto;
     flex-direction: row;
     justify-content: flex-start;
     gap: 16px;
@@ -1711,6 +1710,7 @@ html.is-menu-open {
   .companies__spine-num,
   .companies__spine-title {
     flex: none;
+    height: auto;
     writing-mode: horizontal-tb;
     text-orientation: mixed;
   }
