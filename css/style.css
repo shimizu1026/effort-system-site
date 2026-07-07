@@ -2184,7 +2184,6 @@ html.is-menu-open {
   min-height: clamp(640px, 78vh, 920px);
   padding-block: 48px;
   isolation: isolate;
-  --recruit-photo-width: min(100%, 720px);
   --recruit-gather: 0.7s;
   --recruit-fade: 0.35s;
   --recruit-reveal: 0.45s;
@@ -2199,8 +2198,7 @@ html.is-menu-open {
 
 .recruit__photo {
   position: absolute;
-  width: var(--recruit-photo-width);
-  aspect-ratio: 16 / 9;
+  aspect-ratio: 3 / 2;
   overflow: hidden;
   border-radius: var(--radius);
   box-shadow: 0 8px 24px rgba(5, 11, 32, 0.12);
@@ -2226,21 +2224,25 @@ html.is-menu-open {
 .recruit__photo--1 {
   top: 4%;
   left: 0;
+  width: clamp(240px, 30vw, 420px);
 }
 
 .recruit__photo--2 {
   top: 0;
   right: 0;
+  width: clamp(180px, 22vw, 320px);
 }
 
 .recruit__photo--3 {
   bottom: 10%;
   left: 10%;
+  width: clamp(160px, 18vw, 260px);
 }
 
 .recruit__photo--4 {
   bottom: 0;
   right: 0;
+  width: clamp(280px, 38vw, 480px);
 }
 
 .recruit__link.is-active .recruit__photo {
@@ -2323,7 +2325,7 @@ html.is-menu-open {
 .recruit__visual {
   position: relative;
   z-index: 1;
-  max-width: var(--recruit-photo-width);
+  max-width: min(100%, 720px);
   margin: 0 auto;
   opacity: 0;
   visibility: hidden;
@@ -2433,27 +2435,56 @@ html.is-menu-open {
 @media (max-width: 900px) {
   .recruit__scene {
     min-height: 560px;
-    --recruit-photo-width: min(100%, 520px);
+  }
+
+  .recruit__photo--1 {
+    width: clamp(140px, 32vw, 220px);
+  }
+
+  .recruit__photo--2 {
+    width: clamp(110px, 24vw, 170px);
   }
 
   .recruit__photo--3 {
+    width: clamp(96px, 20vw, 140px);
     bottom: 6%;
     left: 6%;
+  }
+
+  .recruit__photo--4 {
+    width: clamp(160px, 36vw, 260px);
+  }
+
+  .recruit__visual {
+    max-width: min(100%, 520px);
   }
 }
 
 @media (max-width: 600px) {
-  .recruit__scene {
-    --recruit-photo-width: min(100%, 300px);
-  }
-
   .recruit__photos {
     opacity: 0.4;
   }
 
+  .recruit__photo--1 {
+    width: clamp(100px, 34vw, 140px);
+  }
+
+  .recruit__photo--2 {
+    width: clamp(80px, 26vw, 110px);
+  }
+
   .recruit__photo--3 {
+    width: clamp(72px, 22vw, 96px);
     bottom: 4%;
     left: 4%;
+  }
+
+  .recruit__photo--4 {
+    width: clamp(112px, 38vw, 150px);
+  }
+
+  .recruit__visual {
+    max-width: min(100%, 300px);
   }
 }
 
