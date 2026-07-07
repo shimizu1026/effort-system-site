@@ -2202,7 +2202,7 @@ html.is-menu-open {
   min-height: clamp(640px, 78vh, 920px);
   padding-block: 48px;
   isolation: isolate;
-  --recruit-gather: 0.7s;
+  --recruit-gather: 1s;
   --recruit-fade: 0.35s;
   --recruit-reveal: 0.45s;
 }

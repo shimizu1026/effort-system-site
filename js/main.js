@@ -446,7 +446,7 @@
     const canUseCustomCursor = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
 
     const TIMING = {
-      gather: prefersReducedMotion ? 0 : 700,
+      gather: prefersReducedMotion ? 0 : 1000,
       fade: prefersReducedMotion ? 0 : 350,
       reveal: prefersReducedMotion ? 0 : 450,
     };
