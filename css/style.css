@@ -1100,7 +1100,7 @@ html.is-menu-open {
   font-weight: 300;
   line-height: 1.45;
   width: 100%;
-  --hero-title-align-offset: 0.35em;
+  --hero-title-align-offset: 0.4em;
 }
 
 .hero__title-line {
@@ -1121,7 +1121,7 @@ html.is-menu-open {
 
 .hero__title-ni {
   display: inline-block;
-  margin-left: -0.1em;
+  margin-left: -0.4em;
 }
 
 .hero__title-o {
@@ -1134,7 +1134,7 @@ html.is-menu-open {
   display: inline-block;
   font-size: 0.85em;
   line-height: 1;
-  vertical-align: 0.08em;
+  vertical-align: -0.08em;
 }
 
 @property --hero-white {
