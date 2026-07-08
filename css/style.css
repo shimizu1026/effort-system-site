@@ -34,7 +34,14 @@
   --glass-blur: blur(32px) saturate(160%);
   --glass-border: 1px solid rgba(255, 255, 255, 0.22);
   --glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
-  --global-nav-bg: rgba(5, 11, 32, 0.88);
+  --global-nav-bg: linear-gradient(
+    165deg,
+    rgba(255, 255, 255, 0.16) 0%,
+    rgba(255, 255, 255, 0.05) 26%,
+    rgba(5, 11, 32, 0.42) 58%,
+    rgba(5, 11, 32, 0.68) 100%
+  );
+  --global-nav-blur: blur(40px) saturate(180%);
   --link-circle-size: 2.5rem;
   --link-circle-size-sm: 2rem;
 }
@@ -677,7 +684,7 @@ address { font-style: normal; }
   position: fixed;
   inset: 0;
   z-index: 1;
-  background: rgba(11, 20, 34, 0.12);
+  background: rgba(5, 11, 32, 0.32);
   opacity: 0;
   transition: opacity var(--transition);
   pointer-events: none;
@@ -695,11 +702,15 @@ address { font-style: normal; }
   display: flex;
   flex-direction: column;
   padding: 100px 48px 40px;
-  background: var(--global-nav-bg);
-  backdrop-filter: var(--glass-blur);
-  -webkit-backdrop-filter: var(--glass-blur);
-  border: var(--glass-border);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.24);
+  background-color: rgba(5, 11, 32, 0.38);
+  background-image: var(--global-nav-bg);
+  backdrop-filter: var(--global-nav-blur);
+  -webkit-backdrop-filter: var(--global-nav-blur);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.16),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.04),
+    0 24px 64px rgba(5, 11, 32, 0.28);
   overflow-y: auto;
   overscroll-behavior: contain;
   opacity: 0;
