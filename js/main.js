@@ -128,52 +128,46 @@
   };
 
   if (heroMotionReduced) {
-    gsap.set('.hero__title-text, .hero__lead-line, .hero__scroll', { y: 0, opacity: 1 });
+    gsap.set('.hero__title-text, .hero__lead-line, .hero__scroll', { x: 0, y: 0, opacity: 1 });
     gsap.set('.hero__scroll', { opacity: 1 });
     heroTitleText?.classList.add('is-settled');
   } else {
-    const runHeroAnimation = () => {
-      const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+    gsap.set('.hero__title-text', { x: 0, y: '110%', opacity: 0 });
+    gsap.set('.hero__lead-line', { x: 0, y: '110%', opacity: 0 });
 
-      heroTl.fromTo(
-        '.hero__title-text',
-        { y: '110%', opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.95, delay: 0.03, ease: 'power4.out' }
-      );
+    const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-      heroTl.fromTo(
-        '.hero__lead-line',
-        { y: '110%', opacity: 0 },
-        { y: 0, opacity: 1, duration: 0.85, ease: 'power4.out' },
-        '>'
-      );
+    heroTl.fromTo(
+      '.hero__title-text',
+      { x: 0, y: '110%', opacity: 0 },
+      { x: 0, y: 0, opacity: 1, duration: 0.95, delay: 0.03, ease: 'power4.out' }
+    );
 
-      heroTl.fromTo(
-        '.hero__title-text',
-        { backgroundPosition: '100% 50%' },
-        {
-          backgroundPosition: '0% 50%',
-          duration: 3,
-          ease: 'power2.inOut',
-          onUpdate() {
-            if (this.progress() >= 0.68) {
-              finishHeroTitleShine();
-            }
-          },
-          onComplete: finishHeroTitleShine,
+    heroTl.fromTo(
+      '.hero__lead-line',
+      { x: 0, y: '110%', opacity: 0 },
+      { x: 0, y: 0, opacity: 1, duration: 0.85, ease: 'power4.out' },
+      '>'
+    );
+
+    heroTl.fromTo(
+      '.hero__title-text',
+      { backgroundPosition: '100% 50%' },
+      {
+        backgroundPosition: '0% 50%',
+        duration: 3,
+        ease: 'power2.inOut',
+        onUpdate() {
+          if (this.progress() >= 0.68) {
+            finishHeroTitleShine();
+          }
         },
-        '<-=0.35'
-      );
+        onComplete: finishHeroTitleShine,
+      },
+      '<-=0.35'
+    );
 
-      heroTl.fromTo('.hero__scroll', { opacity: 0 }, { opacity: 1, duration: 0.5 }, '-=0.5');
-    };
-
-    Promise.race([
-      document.fonts.ready,
-      new Promise((resolve) => {
-        window.setTimeout(resolve, 400);
-      }),
-    ]).then(runHeroAnimation);
+    heroTl.fromTo('.hero__scroll', { opacity: 0 }, { opacity: 1, duration: 0.5 }, '-=0.5');
   }
 
   gsap.fromTo('.hero-areas .hero__guide', { y: 20, opacity: 0 }, {

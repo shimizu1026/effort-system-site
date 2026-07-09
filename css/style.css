@@ -1085,8 +1085,10 @@ html.is-menu-open {
 }
 
 .hero__copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
   width: 100%;
-  text-align: right;
 }
 
 .hero__lead {
@@ -1094,7 +1096,8 @@ html.is-menu-open {
   font-size: clamp(0.9375rem, 2vw, 1.125rem);
   font-weight: 100;
   line-height: 1.9;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   margin-bottom: 0;
   overflow: hidden;
 }
@@ -1112,18 +1115,25 @@ html.is-menu-open {
   font-size: clamp(2.5rem, 7vw, 5.5rem);
   font-weight: 300;
   line-height: 1.45;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   --hero-title-align-offset: 0.4em;
 }
 
 .hero__title-line {
   position: relative;
   display: block;
-  width: 100%;
+  width: auto;
+  max-width: 100%;
   overflow: hidden;
   padding-block: 0.08em;
   white-space: nowrap;
-  transform: translateX(var(--hero-title-align-offset));
+}
+
+.hero__title-group {
+  display: inline-block;
+  white-space: nowrap;
+  padding-right: var(--hero-title-align-offset);
 }
 
 .hero__title-skew {
@@ -1170,10 +1180,10 @@ html.is-menu-open {
 .hero__title-text {
   display: block;
   position: relative;
-  width: 100%;
-  text-align: right;
+  width: auto;
+  max-width: 100%;
   font-family: var(--font-hero-copy);
-  transform: translateY(110%);
+  transform: translate3d(0, 110%, 0);
   opacity: 0;
   backface-visibility: hidden;
   --hero-white: 0;
@@ -1334,10 +1344,6 @@ html.is-menu-open {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero__title-line {
-    transform: none;
-  }
-
   .hero__title-skew {
     transform: none;
   }
@@ -1409,7 +1415,8 @@ html.is-menu-open {
     padding-inline: 24px clamp(48px, 12vw, 80px);
   }
 
-  .hero__title-line {
+  .hero__title-line,
+  .hero__title-group {
     white-space: normal;
   }
 
