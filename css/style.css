@@ -1163,6 +1163,7 @@ html.is-menu-open {
   vertical-align: -0.08em;
   color: var(--hero-dim-color);
   margin-right: -40px;
+  transform: skewX(10deg);
 }
 
 .hero__title-wrap.is-settled .hero__title-period {
