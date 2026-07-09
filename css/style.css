@@ -1147,6 +1147,13 @@ html.is-menu-open {
   line-height: 1;
   vertical-align: -0.08em;
   transform: skewX(10deg);
+  color: var(--hero-dim-color);
+  -webkit-text-fill-color: var(--hero-dim-color);
+}
+
+.hero__title-text.is-settled .hero__title-period {
+  color: inherit;
+  -webkit-text-fill-color: inherit;
 }
 
 .hero__lead-period {

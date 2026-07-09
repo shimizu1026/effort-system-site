@@ -6,7 +6,7 @@
       "url": "/news/2026-06-15-renewal/",
       "company": "effort-system",
       "category": "お知らせ",
-      "image": "assets/images/eft-system.jpg"
+      "image": "assets/images/eft-system.webp"
     },
     {
       "date": "2026-05-20",
@@ -14,7 +14,7 @@
       "url": "/news/2026-05-20-summer-holiday/",
       "company": "effort-system",
       "category": "お知らせ",
-      "image": "assets/images/eft-system.jpg"
+      "image": "assets/images/eft-system.webp"
     },
     {
       "date": "2026-04-10",
@@ -22,7 +22,7 @@
       "url": "/news/2026-04-10-recruit/",
       "company": "effort-advance",
       "category": "お知らせ",
-      "image": "assets/images/eft-advance.jpg"
+      "image": "assets/images/eft-advance.webp"
     },
     {
       "date": "2026-03-18",
@@ -30,7 +30,7 @@
       "url": "/news/2026-03-18-maintenance/",
       "company": "eft-sanyo",
       "category": "お知らせ",
-      "image": "assets/images/eft.jpg"
+      "image": "assets/images/eft.webp"
     },
     {
       "date": "2026-02-05",
@@ -38,7 +38,7 @@
       "url": "/news/2026-02-05-works/",
       "company": "effort-system",
       "category": "お知らせ",
-      "image": "assets/images/eft-system.jpg"
+      "image": "assets/images/eft-system.webp"
     },
     {
       "date": "2026-01-22",
@@ -46,7 +46,7 @@
       "url": "/news/2026-01-22-newyear/",
       "company": "effort-advance",
       "category": "お知らせ",
-      "image": "assets/images/eft-advance.jpg"
+      "image": "assets/images/eft-advance.webp"
     },
     {
       "date": "2025-12-08",
@@ -54,7 +54,7 @@
       "url": "/news/2025-12-08-inspection/",
       "company": "eft-sanyo",
       "category": "お知らせ",
-      "image": "assets/images/eft.jpg"
+      "image": "assets/images/eft.webp"
     },
     {
       "date": "2025-11-14",
@@ -62,7 +62,7 @@
       "url": "/news/2025-11-14-network/",
       "company": "effort-system",
       "category": "お知らせ",
-      "image": "assets/images/eft-system.jpg"
+      "image": "assets/images/eft-system.webp"
     },
     {
       "date": "2025-10-03",
@@ -70,7 +70,7 @@
       "url": "/news/2025-10-03-exhibition/",
       "company": "effort-advance",
       "category": "お知らせ",
-      "image": "assets/images/eft-advance.jpg"
+      "image": "assets/images/eft-advance.webp"
     }
   ]
 }

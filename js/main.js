@@ -218,9 +218,9 @@
   const DISPLAY_LIMIT = 3;
 
   const companyImages = {
-    'effort-system': 'assets/images/eft-system.jpg',
-    'effort-advance': 'assets/images/eft-advance.jpg',
-    'eft-sanyo': 'assets/images/eft.jpg',
+    'effort-system': 'assets/images/eft-system.webp',
+    'effort-advance': 'assets/images/eft-advance.webp',
+    'eft-sanyo': 'assets/images/eft.webp',
   };
 
   let allNewsItems = [];
