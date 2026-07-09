@@ -926,6 +926,7 @@ html.is-menu-open {
   mask-composite: exclude;
   opacity: 0;
   pointer-events: none;
+  z-index: 1;
 }
 
 .link-btn {
@@ -3045,7 +3046,6 @@ html.is-menu-open {
   align-items: stretch;
   min-width: 0;
   max-width: 100%;
-  overflow: hidden;
   padding: clamp(16px, 2vw, 24px);
   background: rgba(255, 255, 255, 0.06);
   border: 1px solid rgba(255, 255, 255, 0.1);
@@ -3109,7 +3109,7 @@ html.is-menu-open {
   font-weight: 700;
   letter-spacing: 0.04em;
   color: #fff;
-  transition: color var(--transition);
+  transition: color var(--transition), transform 0.2s;
 }
 
 .footer__contact-btn .link-circle {
@@ -3120,6 +3120,7 @@ html.is-menu-open {
 
 .footer__contact:hover .footer__contact-btn {
   color: var(--color-accent);
+  transform: translateY(-2px);
 }
 
 .footer__contact-visual {
