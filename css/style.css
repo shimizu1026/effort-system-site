@@ -1123,20 +1123,7 @@ html.is-menu-open {
   overflow: hidden;
   padding-block: 0.08em;
   white-space: nowrap;
-}
-
-.hero__title-motion {
-  display: block;
-  width: 100%;
-  transform: translate3d(0, 110%, 0);
-  opacity: 0;
-  backface-visibility: hidden;
-}
-
-.hero__title-group {
-  display: inline-block;
-  white-space: nowrap;
-  margin-right: -40px;
+  text-align: right;
 }
 
 .hero__title-skew {
@@ -1182,11 +1169,12 @@ html.is-menu-open {
 }
 
 .hero__title-text {
-  display: block;
+  display: inline-block;
   position: relative;
-  width: auto;
-  max-width: 100%;
   font-family: var(--font-hero-copy);
+  transform: translateY(110%);
+  opacity: 0;
+  backface-visibility: hidden;
   --hero-white: 0;
   --hero-dim-color: rgba(
     calc(211 + 44 * var(--hero-white)),
@@ -1349,7 +1337,6 @@ html.is-menu-open {
     transform: none;
   }
 
-  .hero__title-motion,
   .hero__title-text,
   .hero__lead-line,
   .hero__scroll {
