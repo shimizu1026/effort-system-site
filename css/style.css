@@ -1117,7 +1117,6 @@ html.is-menu-open {
   line-height: 1.45;
   width: auto;
   max-width: 100%;
-  --hero-title-align-offset: 0.4em;
 }
 
 .hero__title-line {
@@ -1130,16 +1129,25 @@ html.is-menu-open {
   white-space: nowrap;
 }
 
+.hero__title-motion {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  transform: translate3d(0, 110%, 0);
+  opacity: 0;
+  backface-visibility: hidden;
+}
+
 .hero__title-group {
   display: inline-block;
   white-space: nowrap;
-  padding-right: var(--hero-title-align-offset);
+  margin-right: 2.222rem;
+  transform: skewX(-10deg);
+  transform-origin: 100% 50%;
 }
 
 .hero__title-skew {
-  display: inline-block;
-  transform: skewX(-10deg);
-  transform-origin: 100% 50%;
+  display: inline;
 }
 
 .hero__title-comma {
@@ -1162,6 +1170,14 @@ html.is-menu-open {
   font-size: 0.85em;
   line-height: 1;
   vertical-align: -0.08em;
+  transform: skewX(10deg);
+  color: var(--hero-dim-color);
+  -webkit-text-fill-color: var(--hero-dim-color);
+}
+
+.hero__title-text.is-settled .hero__title-period {
+  color: inherit;
+  -webkit-text-fill-color: inherit;
 }
 
 .hero__lead-period {
@@ -1183,9 +1199,6 @@ html.is-menu-open {
   width: auto;
   max-width: 100%;
   font-family: var(--font-hero-copy);
-  transform: translate3d(0, 110%, 0);
-  opacity: 0;
-  backface-visibility: hidden;
   --hero-white: 0;
   --hero-dim-color: rgba(
     calc(211 + 44 * var(--hero-white)),
@@ -1344,10 +1357,15 @@ html.is-menu-open {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero__title-skew {
+  .hero__title-group {
     transform: none;
   }
 
+  .hero__title-period {
+    transform: none;
+  }
+
+  .hero__title-motion,
   .hero__title-text,
   .hero__lead-line,
   .hero__scroll {
