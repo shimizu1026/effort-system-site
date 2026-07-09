@@ -1126,8 +1126,12 @@ html.is-menu-open {
   text-align: right;
 }
 
-.hero__title-skew {
-  display: inline;
+.hero__title-wrap {
+  display: inline-block;
+  white-space: nowrap;
+  transform: translateY(110%) skewX(-10deg);
+  opacity: 0;
+  backface-visibility: hidden;
 }
 
 .hero__title-comma {
@@ -1150,7 +1154,7 @@ html.is-menu-open {
   font-size: 0.85em;
   line-height: 1;
   vertical-align: -0.08em;
-  transform: skewX(10deg);
+  color: #fff;
 }
 
 
@@ -1168,12 +1172,9 @@ html.is-menu-open {
 }
 
 .hero__title-text {
-  display: inline-block;
+  display: inline;
   position: relative;
   font-family: var(--font-hero-copy);
-  transform: translateY(110%);
-  opacity: 0;
-  backface-visibility: hidden;
   --hero-white: 0;
   --hero-dim-color: rgba(
     calc(211 + 44 * var(--hero-white)),
@@ -1336,14 +1337,11 @@ html.is-menu-open {
     transform: none;
   }
 
-  .hero__title-text,
+  .hero__title-wrap,
   .hero__lead-line,
   .hero__scroll {
-    opacity: 1;
-  }
-
-  .hero__title-period {
     transform: none;
+    opacity: 1;
   }
 
   .hero__scroll {

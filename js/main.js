@@ -128,15 +128,14 @@
   };
 
   if (heroMotionReduced) {
-    gsap.set('.hero__title-text', { y: 0, opacity: 1, skewX: -10 });
+    gsap.set('.hero__title-wrap', { y: 0, opacity: 1, skewX: -10 });
     gsap.set('.hero__lead-line, .hero__scroll', { y: 0, opacity: 1 });
-    gsap.set('.hero__scroll', { opacity: 1 });
     heroTitleText?.classList.add('is-settled');
   } else {
     const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
     heroTl.fromTo(
-      '.hero__title-text',
+      '.hero__title-wrap',
       { y: '110%', opacity: 0, skewX: -10 },
       { y: 0, opacity: 1, skewX: -10, duration: 0.95, delay: 0.03, ease: 'power4.out' }
     );
