@@ -1484,8 +1484,8 @@ html.is-menu-open {
       var(--companies-spine-title-height-ref)
   );
   --companies-transition: 0.65s cubic-bezier(0.4, 0, 0.2, 1);
-  --companies-inner-max: min(100%, 840px);
-  --companies-inner-gap: clamp(32px, 5vw, 56px);
+  --companies-inner-max: min(100%, 960px);
+  --companies-inner-gap: clamp(48px, 8vw, 88px);
   display: flex;
   width: 100vw;
   height: var(--companies-height);
@@ -1576,11 +1576,11 @@ html.is-menu-open {
   width: var(--companies-inner-max);
   margin-inline: auto;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(180px, 240px);
+  grid-template-columns: minmax(0, 1fr) minmax(200px, 280px);
   gap: var(--companies-inner-gap);
   align-items: center;
   height: 100%;
-  padding: clamp(28px, 4vw, 48px);
+  padding: clamp(32px, 5vw, 64px);
   overflow-y: auto;
   opacity: 0;
   visibility: hidden;
@@ -1807,8 +1807,8 @@ html.is-menu-open {
     height: auto;
     overflow: visible;
     grid-template-columns: 1fr;
-    gap: clamp(24px, 6vw, 40px);
-    padding: 0 24px 32px;
+    gap: clamp(32px, 8vw, 56px);
+    padding: 0 24px 40px;
     opacity: 1;
     visibility: visible;
     transition: none;
