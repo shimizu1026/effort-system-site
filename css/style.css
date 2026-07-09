@@ -1757,6 +1757,10 @@ html.is-menu-open {
   transform: translateY(calc(-50% - 2px));
 }
 
+.companies__nav-grid a:hover::after {
+  transform: translateY(calc(-50% - 2px));
+}
+
 .companies__media {
   overflow: hidden;
   border-radius: var(--radius);
