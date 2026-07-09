@@ -1127,9 +1127,7 @@ html.is-menu-open {
 }
 
 .hero__title-skew {
-  display: inline-block;
-  transform: skewX(-10deg);
-  transform-origin: 100% 50%;
+  display: inline;
 }
 
 .hero__title-comma {
@@ -1152,6 +1150,7 @@ html.is-menu-open {
   font-size: 0.85em;
   line-height: 1;
   vertical-align: -0.08em;
+  transform: skewX(10deg);
 }
 
 
@@ -1340,8 +1339,11 @@ html.is-menu-open {
   .hero__title-text,
   .hero__lead-line,
   .hero__scroll {
-    transform: none;
     opacity: 1;
+  }
+
+  .hero__title-period {
+    transform: none;
   }
 
   .hero__scroll {

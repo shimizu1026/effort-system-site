@@ -128,7 +128,8 @@
   };
 
   if (heroMotionReduced) {
-    gsap.set('.hero__title-text, .hero__lead-line, .hero__scroll', { y: 0, opacity: 1 });
+    gsap.set('.hero__title-text', { y: 0, opacity: 1, skewX: -10 });
+    gsap.set('.hero__lead-line, .hero__scroll', { y: 0, opacity: 1 });
     gsap.set('.hero__scroll', { opacity: 1 });
     heroTitleText?.classList.add('is-settled');
   } else {
@@ -136,8 +137,8 @@
 
     heroTl.fromTo(
       '.hero__title-text',
-      { y: '110%', opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.95, delay: 0.03, ease: 'power4.out' }
+      { y: '110%', opacity: 0, skewX: -10 },
+      { y: 0, opacity: 1, skewX: -10, duration: 0.95, delay: 0.03, ease: 'power4.out' }
     );
 
     heroTl.fromTo(
