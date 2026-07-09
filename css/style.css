@@ -1141,7 +1141,14 @@ html.is-menu-open {
   margin-right: -0.12em;
 }
 
-.hero__title-period,
+.hero__title-period {
+  display: inline-block;
+  font-size: 0.85em;
+  line-height: 1;
+  vertical-align: -0.08em;
+  transform: skewX(10deg);
+}
+
 .hero__lead-period {
   display: inline-block;
   font-size: 0.85em;
@@ -1320,6 +1327,10 @@ html.is-menu-open {
 
 @media (prefers-reduced-motion: reduce) {
   .hero__title-line {
+    transform: none;
+  }
+
+  .hero__title-period {
     transform: none;
   }
 
