@@ -123,7 +123,7 @@
       ease: 'power2.out',
       onComplete: () => {
         heroTitleWrap.classList.add('is-settled');
-        gsap.set(heroTitleText, { clearProps: 'backgroundPosition' });
+        gsap.set([heroTitleText, '.hero__title-period'], { clearProps: 'backgroundPosition' });
         gsap.set(heroTitleWrap, { clearProps: '--hero-white' });
       },
     });
@@ -150,7 +150,7 @@
     );
 
     heroTl.fromTo(
-      '.hero__title-text',
+      ['.hero__title-text', '.hero__title-period'],
       { backgroundPosition: '100% 50%' },
       {
         backgroundPosition: '0% 50%',
