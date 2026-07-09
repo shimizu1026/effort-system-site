@@ -1122,7 +1122,12 @@ html.is-menu-open {
   overflow: hidden;
   padding-block: 0.08em;
   white-space: nowrap;
-  transform: skewX(-10deg) translateX(var(--hero-title-align-offset));
+  transform: translateX(var(--hero-title-align-offset));
+}
+
+.hero__title-skew {
+  display: inline-block;
+  transform: skewX(-10deg);
   transform-origin: 100% 50%;
 }
 
@@ -1146,14 +1151,6 @@ html.is-menu-open {
   font-size: 0.85em;
   line-height: 1;
   vertical-align: -0.08em;
-  transform: skewX(10deg);
-  color: var(--hero-dim-color);
-  -webkit-text-fill-color: var(--hero-dim-color);
-}
-
-.hero__title-text.is-settled .hero__title-period {
-  color: inherit;
-  -webkit-text-fill-color: inherit;
 }
 
 .hero__lead-period {
@@ -1337,7 +1334,7 @@ html.is-menu-open {
     transform: none;
   }
 
-  .hero__title-period {
+  .hero__title-skew {
     transform: none;
   }
 
