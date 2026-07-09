@@ -16,10 +16,7 @@
   --color-bg-card: #ffffff;
   --color-primary: #050B20;
   --color-primary-light: #111d3d;
-  --color-accent: #31576C;
-  --color-accent-muted: #7A7974;
-  --color-accent-rgb: 49, 87, 108;
-  --color-accent-muted-rgb: 122, 121, 116;
+  --color-accent: #00b4d8;
   --color-text: #1a2332;
   --color-text-muted: #5c6b7f;
   --color-text-light: #e8edf4;
@@ -395,7 +392,7 @@ address { font-style: normal; }
 
 .header__nav-item:hover > .header__nav-trigger,
 .header__nav-item:focus-within > .header__nav-trigger {
-  color: var(--color-accent-muted);
+  color: var(--color-accent);
 }
 
 /* ---- Mega Menu ---- */
@@ -496,7 +493,7 @@ address { font-style: normal; }
 }
 
 .mega-menu__links a:hover {
-  color: var(--color-accent-muted);
+  color: var(--color-accent);
 }
 
 .mega-menu__visual {
@@ -552,7 +549,7 @@ address { font-style: normal; }
 }
 
 .mega-menu__card:hover span {
-  color: var(--color-accent-muted);
+  color: var(--color-accent);
 }
 
 .mega-menu__grid {
@@ -572,7 +569,7 @@ address { font-style: normal; }
 }
 
 .mega-menu__grid a:hover {
-  color: var(--color-accent-muted);
+  color: var(--color-accent);
 }
 
 @media (max-width: 1100px) {
@@ -760,7 +757,7 @@ address { font-style: normal; }
 }
 
 .global-nav__heading a:hover {
-  color: var(--color-accent-muted);
+  color: var(--color-accent);
 }
 
 .global-nav__sub {
@@ -780,7 +777,7 @@ address { font-style: normal; }
 }
 
 .global-nav__sub a:hover {
-  color: var(--color-accent-muted);
+  color: var(--color-accent);
 }
 
 .global-nav__policy {
@@ -1396,7 +1393,7 @@ html.is-menu-open {
 .hero__scroll-line {
   width: 1px;
   height: 48px;
-  background: linear-gradient(180deg, var(--color-accent-muted), transparent);
+  background: linear-gradient(180deg, var(--color-accent), transparent);
   animation: scrollPulse 2s ease-in-out infinite;
 }
 
@@ -1458,7 +1455,7 @@ html.is-menu-open {
 }
 
 .about .section-label {
-  color: var(--color-accent-muted);
+  color: var(--color-accent);
 }
 
 .about__inner {
@@ -1755,7 +1752,7 @@ html.is-menu-open {
 
 .companies__nav-grid a:hover {
   color: var(--color-accent);
-  border-color: rgba(var(--color-accent-rgb), 0.35);
+  border-color: rgba(0, 180, 216, 0.35);
 }
 
 .companies__nav-grid a:hover::before {
@@ -2706,7 +2703,7 @@ html.is-menu-open {
 }
 
 .catalog .card-swiper__stage:focus-visible {
-  box-shadow: 0 0 0 3px rgba(var(--color-accent-rgb), 0.45);
+  box-shadow: 0 0 0 3px rgba(0, 180, 216, 0.45);
   border-radius: var(--radius);
 }
 
@@ -3002,7 +2999,7 @@ html.is-menu-open {
 }
 
 .footer__tel a:hover {
-  color: var(--color-accent-muted);
+  color: var(--color-accent);
 }
 
 .footer__logo-en {
@@ -3039,7 +3036,7 @@ html.is-menu-open {
 }
 
 .footer__nav-list a:hover {
-  color: var(--color-accent-muted);
+  color: var(--color-accent);
 }
 
 .footer__contact {
@@ -3122,7 +3119,7 @@ html.is-menu-open {
 }
 
 .footer__contact:hover .footer__contact-btn {
-  color: var(--color-accent-muted);
+  color: var(--color-accent);
   transform: translateY(-2px);
 }
 
@@ -3169,7 +3166,7 @@ html.is-menu-open {
 }
 
 .footer__policy a:hover {
-  color: var(--color-accent-muted);
+  color: var(--color-accent);
 }
 
 .footer__copy {
