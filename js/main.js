@@ -110,27 +110,29 @@
   /* ---- Hero animation ---- */
   const heroMotionReduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   const heroTitleText = document.querySelector('.hero__title-text');
+  const heroTitleWrap = document.querySelector('.hero__title-wrap');
   let heroShineFinished = false;
 
   const finishHeroTitleShine = () => {
-    if (heroShineFinished || !heroTitleText) return;
+    if (heroShineFinished || !heroTitleWrap) return;
     heroShineFinished = true;
 
-    gsap.to(heroTitleText, {
+    gsap.to(heroTitleWrap, {
       '--hero-white': 1,
       duration: 0.75,
       ease: 'power2.out',
       onComplete: () => {
-        heroTitleText.classList.add('is-settled');
-        gsap.set(heroTitleText, { clearProps: 'backgroundPosition,--hero-white' });
+        heroTitleWrap.classList.add('is-settled');
+        gsap.set(heroTitleText, { clearProps: 'backgroundPosition' });
+        gsap.set(heroTitleWrap, { clearProps: '--hero-white' });
       },
     });
   };
 
   if (heroMotionReduced) {
-    gsap.set('.hero__title-wrap', { y: 0, opacity: 1, skewX: -10 });
+    gsap.set('.hero__title-wrap', { y: 0, opacity: 1, skewX: -10, '--hero-white': 1 });
     gsap.set('.hero__lead-line, .hero__scroll', { y: 0, opacity: 1 });
-    heroTitleText?.classList.add('is-settled');
+    heroTitleWrap?.classList.add('is-settled');
   } else {
     const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 

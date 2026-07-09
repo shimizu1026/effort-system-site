@@ -1132,6 +1132,13 @@ html.is-menu-open {
   transform: translateY(110%) skewX(-10deg);
   opacity: 0;
   backface-visibility: hidden;
+  --hero-white: 0;
+  --hero-dim-color: rgba(
+    calc(211 + 44 * var(--hero-white)),
+    calc(209 + 46 * var(--hero-white)),
+    calc(209 + 46 * var(--hero-white)),
+    calc(0.3 + 0.7 * var(--hero-white))
+  );
 }
 
 .hero__title-comma {
@@ -1154,6 +1161,10 @@ html.is-menu-open {
   font-size: 0.85em;
   line-height: 1;
   vertical-align: -0.08em;
+  color: var(--hero-dim-color);
+}
+
+.hero__title-wrap.is-settled .hero__title-period {
   color: #fff;
 }
 
@@ -1167,7 +1178,7 @@ html.is-menu-open {
 
 @property --hero-white {
   syntax: '<number>';
-  inherits: false;
+  inherits: true;
   initial-value: 0;
 }
 
@@ -1175,13 +1186,6 @@ html.is-menu-open {
   display: inline;
   position: relative;
   font-family: var(--font-hero-copy);
-  --hero-white: 0;
-  --hero-dim-color: rgba(
-    calc(211 + 44 * var(--hero-white)),
-    calc(209 + 46 * var(--hero-white)),
-    calc(209 + 46 * var(--hero-white)),
-    calc(0.3 + 0.7 * var(--hero-white))
-  );
   background-image: linear-gradient(
     70deg,
     var(--hero-dim-color) 45%,
@@ -1197,7 +1201,7 @@ html.is-menu-open {
   color: transparent;
 }
 
-.hero__title-text.is-settled {
+.hero__title-wrap.is-settled .hero__title-text {
   background: none;
   background-image: none;
   background-clip: unset;
