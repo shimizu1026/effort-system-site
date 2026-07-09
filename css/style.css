@@ -1104,6 +1104,7 @@ html.is-menu-open {
   overflow: hidden;
   text-shadow: 0 1px 12px rgba(5, 11, 32, 0.28);
   transform: translateY(110%);
+  opacity: 0;
   backface-visibility: hidden;
 }
 
@@ -1169,8 +1170,11 @@ html.is-menu-open {
 .hero__title-text {
   display: block;
   position: relative;
+  width: 100%;
+  text-align: right;
   font-family: var(--font-hero-copy);
   transform: translateY(110%);
+  opacity: 0;
   backface-visibility: hidden;
   --hero-white: 0;
   --hero-dim-color: rgba(
@@ -1342,6 +1346,7 @@ html.is-menu-open {
   .hero__lead-line,
   .hero__scroll {
     transform: none;
+    opacity: 1;
   }
 
   .hero__scroll {
