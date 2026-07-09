@@ -1085,10 +1085,8 @@ html.is-menu-open {
 }
 
 .hero__copy {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
   width: 100%;
+  text-align: right;
 }
 
 .hero__lead {
@@ -1115,15 +1113,13 @@ html.is-menu-open {
   font-size: clamp(2.5rem, 7vw, 5.5rem);
   font-weight: 300;
   line-height: 1.45;
-  width: auto;
-  max-width: 100%;
+  width: 100%;
 }
 
 .hero__title-line {
   position: relative;
   display: block;
-  width: auto;
-  max-width: 100%;
+  width: 100%;
   overflow: hidden;
   padding-block: 0.08em;
   white-space: nowrap;
@@ -1131,8 +1127,7 @@ html.is-menu-open {
 
 .hero__title-motion {
   display: block;
-  width: auto;
-  max-width: 100%;
+  width: 100%;
   transform: translate3d(0, 110%, 0);
   opacity: 0;
   backface-visibility: hidden;
@@ -1141,13 +1136,13 @@ html.is-menu-open {
 .hero__title-group {
   display: inline-block;
   white-space: nowrap;
-  margin-right: 2.222rem;
-  transform: skewX(-10deg);
-  transform-origin: 100% 50%;
+  margin-right: -40px;
 }
 
 .hero__title-skew {
-  display: inline;
+  display: inline-block;
+  transform: skewX(-10deg);
+  transform-origin: 100% 50%;
 }
 
 .hero__title-comma {
@@ -1170,15 +1165,8 @@ html.is-menu-open {
   font-size: 0.85em;
   line-height: 1;
   vertical-align: -0.08em;
-  transform: skewX(10deg);
-  color: var(--hero-dim-color);
-  -webkit-text-fill-color: var(--hero-dim-color);
 }
 
-.hero__title-text.is-settled .hero__title-period {
-  color: inherit;
-  -webkit-text-fill-color: inherit;
-}
 
 .hero__lead-period {
   display: inline-block;
@@ -1357,11 +1345,7 @@ html.is-menu-open {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .hero__title-group {
-    transform: none;
-  }
-
-  .hero__title-period {
+  .hero__title-skew {
     transform: none;
   }
 
