@@ -1454,7 +1454,7 @@ html.is-menu-open {
   position: relative;
   z-index: 2;
   background: transparent;
-  padding-bottom: clamp(200px, 18vw, 300px);
+  padding-bottom: clamp(280px, 26vw, 420px);
 }
 
 .about::after {
@@ -1464,19 +1464,19 @@ html.is-menu-open {
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
-  height: clamp(220px, 24vw, 340px);
+  height: clamp(280px, 28vw, 420px);
   z-index: 2;
   pointer-events: none;
   background: linear-gradient(
     180deg,
     rgba(244, 246, 249, 0) 0%,
-    rgba(244, 246, 249, 0.18) 32%,
-    rgba(244, 246, 249, 0.62) 62%,
-    rgba(244, 246, 249, 0.94) 84%,
+    rgba(244, 246, 249, 0.22) 28%,
+    rgba(244, 246, 249, 0.68) 58%,
+    rgba(244, 246, 249, 0.96) 82%,
     var(--color-bg) 100%
   );
-  backdrop-filter: blur(36px) saturate(150%);
-  -webkit-backdrop-filter: blur(36px) saturate(150%);
+  backdrop-filter: blur(56px) saturate(170%);
+  -webkit-backdrop-filter: blur(56px) saturate(170%);
   -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 42%, #000 100%);
   mask-image: linear-gradient(180deg, transparent 0%, #000 42%, #000 100%);
 }
@@ -1546,8 +1546,8 @@ html.is-menu-open {
   position: relative;
   z-index: 4;
   background: var(--color-bg);
-  margin-top: clamp(-220px, -20vw, -320px);
-  padding-top: clamp(180px, 15vw, 240px);
+  margin-top: clamp(-280px, -24vw, -400px);
+  padding-top: clamp(200px, 17vw, 260px);
   padding-bottom: 0;
   overflow: visible;
 }
@@ -1555,21 +1555,21 @@ html.is-menu-open {
 .companies::before {
   content: '';
   position: absolute;
-  top: clamp(-72px, -7vw, -108px);
+  top: clamp(-96px, -9vw, -140px);
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
-  height: clamp(220px, 24vw, 320px);
+  height: clamp(280px, 28vw, 400px);
   z-index: 0;
   pointer-events: none;
   background: linear-gradient(
     180deg,
-    rgba(244, 246, 249, 0.28) 0%,
-    rgba(244, 246, 249, 0.82) 58%,
+    rgba(244, 246, 249, 0.35) 0%,
+    rgba(244, 246, 249, 0.88) 55%,
     var(--color-bg) 100%
   );
-  backdrop-filter: blur(40px) saturate(160%);
-  -webkit-backdrop-filter: blur(40px) saturate(160%);
+  backdrop-filter: blur(64px) saturate(180%);
+  -webkit-backdrop-filter: blur(64px) saturate(180%);
   -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 36%, #000 100%);
   mask-image: linear-gradient(180deg, transparent 0%, #000 36%, #000 100%);
 }
