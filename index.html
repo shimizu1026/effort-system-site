@@ -18,8 +18,18 @@
     />
     <link rel="stylesheet" href="css/destyle.css" />
     <link rel="stylesheet" href="css/style.css" />
+    <link
+      rel="preload"
+      href="assets/fonts/hannari/HannariMincho-Regular.otf"
+      as="font"
+      type="font/otf"
+      crossorigin
+    />
     <style>
-      /* FOUC防止: style.css 読み込み前に非表示 */
+      /* FOUC防止: style.css / JS 読み込み前に非表示 */
+      .hero__copy {
+        visibility: hidden;
+      }
       .hero__title-wrap {
         opacity: 0;
         transform: translateY(110%) skewX(-10deg);
