@@ -1144,25 +1144,26 @@ html.is-menu-open {
 }
 
 .hero__title-comma {
-  display: inline-block;
+  display: inline;
   margin-right: -0.22em;
 }
 
 .hero__title-ni {
-  display: inline-block;
+  display: inline;
   margin-left: -0.4em;
 }
 
 .hero__title-o {
-  display: inline-block;
+  display: inline;
   margin-right: -0.12em;
 }
 
 .hero__title-period {
-  display: inline-block;
+  display: inline;
   font-size: 0.85em;
   line-height: 1;
   vertical-align: -0.08em;
+  margin-left: -0.12em;
   margin-right: -40px;
   transform: skewX(10deg);
   background-image: linear-gradient(
