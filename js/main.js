@@ -47,6 +47,17 @@
         header.classList.toggle('is-scrolled', self.scroll() > 80);
       },
     });
+
+    const companiesSection = document.getElementById('companies');
+
+    if (companiesSection) {
+      ScrollTrigger.create({
+        trigger: companiesSection,
+        start: 'top 72px',
+        onEnter: () => header.classList.add('header--on-light-bg'),
+        onLeaveBack: () => header.classList.remove('header--on-light-bg'),
+      });
+    }
   }
 
   /* ---- Page top ---- */

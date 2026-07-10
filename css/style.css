@@ -638,32 +638,32 @@ address { font-style: normal; }
   margin-left: auto;
 }
 
-.header.is-scrolled .header__site-toggle {
+.header.header--on-light-bg .header__site-toggle {
   background: rgba(5, 11, 32, 0.06);
   border-color: var(--color-text-muted);
 }
 
-.header.is-scrolled .header__site-toggle-link {
+.header.header--on-light-bg .header__site-toggle-link {
   color: var(--color-text-muted);
 }
 
-.header.is-scrolled .header__site-toggle-link:hover {
+.header.header--on-light-bg .header__site-toggle-link:hover {
   color: var(--color-text);
 }
 
-.header.is-scrolled .header__site-toggle-indicator {
+.header.header--on-light-bg .header__site-toggle-indicator {
   background: var(--color-primary);
 }
 
-.header.is-scrolled .header__site-toggle-link.is-active {
+.header.header--on-light-bg .header__site-toggle-link.is-active {
   color: #fff;
 }
 
-.header.is-scrolled .header__site-toggle-link.is-active:hover {
+.header.header--on-light-bg .header__site-toggle-link.is-active:hover {
   color: #fff;
 }
 
-.header.is-scrolled .header__menu-btn span {
+.header.header--on-light-bg .header__menu-btn span {
   background: var(--color-text);
 }
 
