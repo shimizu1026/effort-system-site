@@ -144,40 +144,52 @@
     gsap.set('.hero__title-wrap', { y: 0, opacity: 1, skewX: -10, '--hero-white': 1 });
     gsap.set('.hero__lead-line, .hero__scroll', { y: 0, opacity: 1 });
     heroTitleWrap?.classList.add('is-settled');
-  } else {
-    const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
+  } else if (heroTitleWrap) {
+    gsap.set('.hero__title-wrap', { y: '110%', opacity: 0, skewX: -10 });
+    gsap.set('.hero__lead-line', { y: '110%', opacity: 0 });
+    gsap.set('.hero__scroll', { opacity: 0 });
 
-    heroTl.fromTo(
-      '.hero__title-wrap',
-      { y: '110%', opacity: 0, skewX: -10 },
-      { y: 0, opacity: 1, skewX: -10, duration: 0.95, delay: 0.03, ease: 'power4.out' }
-    );
+    const runHeroAnimation = () => {
+      const heroTl = gsap.timeline({ defaults: { ease: 'power3.out' } });
 
-    heroTl.fromTo(
-      '.hero__lead-line',
-      { y: '110%', opacity: 0 },
-      { y: 0, opacity: 1, duration: 0.85, ease: 'power4.out' },
-      '>'
-    );
+      heroTl.fromTo(
+        '.hero__title-wrap',
+        { y: '110%', opacity: 0, skewX: -10 },
+        { y: 0, opacity: 1, skewX: -10, duration: 0.95, delay: 0.03, ease: 'power4.out' }
+      );
 
-    heroTl.fromTo(
-      ['.hero__title-text', '.hero__title-period'],
-      { backgroundPosition: '100% 50%' },
-      {
-        backgroundPosition: '0% 50%',
-        duration: 3,
-        ease: 'power2.inOut',
-        onUpdate() {
-          if (this.progress() >= 0.68) {
-            finishHeroTitleShine();
-          }
+      heroTl.fromTo(
+        '.hero__lead-line',
+        { y: '110%', opacity: 0 },
+        { y: 0, opacity: 1, duration: 0.85, ease: 'power4.out' },
+        '>'
+      );
+
+      heroTl.fromTo(
+        ['.hero__title-text', '.hero__title-period'],
+        { backgroundPosition: '100% 50%' },
+        {
+          backgroundPosition: '0% 50%',
+          duration: 3,
+          ease: 'power2.inOut',
+          onUpdate() {
+            if (this.progress() >= 0.68) {
+              finishHeroTitleShine();
+            }
+          },
+          onComplete: finishHeroTitleShine,
         },
-        onComplete: finishHeroTitleShine,
-      },
-      '<-=0.35'
-    );
+        '<-=0.35'
+      );
 
-    heroTl.fromTo('.hero__scroll', { opacity: 0 }, { opacity: 1, duration: 0.5 }, '-=0.5');
+      heroTl.fromTo('.hero__scroll', { opacity: 0 }, { opacity: 1, duration: 0.5 }, '-=0.5');
+    };
+
+    if (document.fonts?.ready) {
+      document.fonts.ready.then(runHeroAnimation);
+    } else {
+      runHeroAnimation();
+    }
   }
 
   gsap.fromTo('.hero-areas .hero__guide', { y: 20, opacity: 0 }, {

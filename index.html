@@ -19,11 +19,16 @@
     <link rel="stylesheet" href="css/destyle.css" />
     <link rel="stylesheet" href="css/style.css" />
     <style>
+      /* FOUC防止: style.css 読み込み前に非表示 */
       .hero__title-wrap {
         opacity: 0;
         transform: translateY(110%) skewX(-10deg);
       }
       .hero__lead-line {
+        opacity: 0;
+        transform: translateY(110%);
+      }
+      .hero__scroll {
         opacity: 0;
       }
     </style>
