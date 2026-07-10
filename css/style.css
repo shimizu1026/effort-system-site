@@ -1536,7 +1536,7 @@ html.is-menu-open {
     var(--companies-spine-num-height) + var(--companies-spine-gap) +
       var(--companies-spine-title-height-ref)
   );
-  --companies-transition: 0.65s cubic-bezier(0.4, 0, 0.2, 1);
+  --companies-transition: 1.05s cubic-bezier(0.4, 0, 0.2, 1);
   --companies-inner-max: min(100%, 1440px);
   --companies-inner-gap: clamp(48px, 6vw, 96px);
   display: flex;
@@ -1582,7 +1582,7 @@ html.is-menu-open {
   justify-content: center;
   padding-inline: 12px;
   pointer-events: none;
-  transition: opacity 0.35s ease;
+  transition: opacity 0.55s ease;
 }
 
 .companies__spine-inner {
@@ -1794,8 +1794,8 @@ html.is-menu-open {
     opacity: 1;
     visibility: visible;
     transition:
-      opacity 0.45s ease 0.18s,
-      visibility 0s linear 0.18s;
+      opacity 0.75s ease 0.35s,
+      visibility 0s linear 0.35s;
   }
 }
 
