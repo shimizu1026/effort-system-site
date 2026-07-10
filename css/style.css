@@ -1633,7 +1633,6 @@ html.is-menu-open {
   gap: var(--companies-inner-gap);
   align-items: center;
   height: 100%;
-  padding: clamp(32px, 5vw, 64px);
   overflow-y: auto;
   opacity: 0;
   visibility: hidden;
