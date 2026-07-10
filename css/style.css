@@ -1452,7 +1452,33 @@ html.is-menu-open {
 /* ---- About (on video) ---- */
 .about {
   position: relative;
+  z-index: 2;
   background: transparent;
+  padding-bottom: clamp(200px, 18vw, 300px);
+}
+
+.about::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100vw;
+  height: clamp(220px, 24vw, 340px);
+  z-index: 2;
+  pointer-events: none;
+  background: linear-gradient(
+    180deg,
+    rgba(244, 246, 249, 0) 0%,
+    rgba(244, 246, 249, 0.18) 32%,
+    rgba(244, 246, 249, 0.62) 62%,
+    rgba(244, 246, 249, 0.94) 84%,
+    var(--color-bg) 100%
+  );
+  backdrop-filter: blur(36px) saturate(150%);
+  -webkit-backdrop-filter: blur(36px) saturate(150%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 42%, #000 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 42%, #000 100%);
 }
 
 .about .section-label {
@@ -1461,7 +1487,7 @@ html.is-menu-open {
 
 .about__inner {
   position: relative;
-  z-index: 1;
+  z-index: 3;
   max-width: 1000px;
   margin-inline: auto;
   text-align: center;
@@ -1518,10 +1544,10 @@ html.is-menu-open {
 /* ---- Companies ---- */
 .companies {
   position: relative;
-  z-index: 3;
+  z-index: 4;
   background: var(--color-bg);
-  margin-top: clamp(-96px, -9vw, -144px);
-  padding-top: clamp(136px, 11vw, 176px);
+  margin-top: clamp(-220px, -20vw, -320px);
+  padding-top: clamp(180px, 15vw, 240px);
   padding-bottom: 0;
   overflow: visible;
 }
@@ -1529,23 +1555,23 @@ html.is-menu-open {
 .companies::before {
   content: '';
   position: absolute;
-  top: 0;
+  top: clamp(-72px, -7vw, -108px);
   left: 50%;
   transform: translateX(-50%);
   width: 100vw;
-  height: clamp(128px, 15vw, 220px);
+  height: clamp(220px, 24vw, 320px);
   z-index: 0;
   pointer-events: none;
   background: linear-gradient(
     180deg,
-    rgba(244, 246, 249, 0) 0%,
-    rgba(244, 246, 249, 0.72) 52%,
+    rgba(244, 246, 249, 0.28) 0%,
+    rgba(244, 246, 249, 0.82) 58%,
     var(--color-bg) 100%
   );
-  backdrop-filter: blur(28px) saturate(140%);
-  -webkit-backdrop-filter: blur(28px) saturate(140%);
-  -webkit-mask-image: linear-gradient(180deg, #000 18%, transparent 100%);
-  mask-image: linear-gradient(180deg, #000 18%, transparent 100%);
+  backdrop-filter: blur(40px) saturate(160%);
+  -webkit-backdrop-filter: blur(40px) saturate(160%);
+  -webkit-mask-image: linear-gradient(180deg, transparent 0%, #000 36%, #000 100%);
+  mask-image: linear-gradient(180deg, transparent 0%, #000 36%, #000 100%);
 }
 
 .companies .container,
