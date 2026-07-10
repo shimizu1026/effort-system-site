@@ -1506,7 +1506,6 @@ html.is-menu-open {
 .about__name-company {
   display: block;
   font-size: clamp(0.875rem, 1.4vw, 1rem);
-  line-height: 1.25;
 }
 
 .about__name-representative {
