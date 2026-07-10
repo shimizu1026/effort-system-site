@@ -1663,8 +1663,19 @@ html.is-menu-open {
   padding-block: clamp(32px, 5vw, 64px);
   padding-right: clamp(24px, 3vw, 40px);
   padding-left: var(--companies-content-padding-left);
-  background: rgba(244, 246, 249, 0.96);
   overflow-y: auto;
+}
+
+.companies__panel--effort-system .companies__content {
+  background: #e8edf4;
+}
+
+.companies__panel--effort-advance .companies__content {
+  background: #dfe9f2;
+}
+
+.companies__panel--eft-sanyo .companies__content {
+  background: #e4e8f1;
 }
 
 .companies__num {
