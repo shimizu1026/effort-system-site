@@ -1537,8 +1537,6 @@ html.is-menu-open {
       var(--companies-spine-title-height-ref)
   );
   --companies-transition: 1.05s cubic-bezier(0.4, 0, 0.2, 1);
-  --companies-inner-max: min(100%, 1440px);
-  --companies-inner-gap: clamp(48px, 6vw, 96px);
   display: flex;
   width: 100vw;
   height: var(--companies-height);
@@ -1621,19 +1619,15 @@ html.is-menu-open {
 
 .companies__inner {
   position: absolute;
-  top: 0;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  inset: 0;
   z-index: 1;
-  width: var(--companies-inner-max);
-  margin-inline: auto;
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(280px, 560px);
-  gap: var(--companies-inner-gap);
-  align-items: center;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0;
+  align-items: stretch;
+  width: 100%;
   height: 100%;
-  overflow-y: auto;
+  overflow: hidden;
   opacity: 0;
   visibility: hidden;
   transition: none;
@@ -1642,7 +1636,10 @@ html.is-menu-open {
 .companies__content {
   position: relative;
   min-width: 0;
-  padding-top: clamp(2.5rem, 4vw, 3.5rem);
+  min-height: 0;
+  padding: clamp(32px, 5vw, 64px);
+  padding-right: clamp(24px, 3vw, 40px);
+  overflow-y: auto;
 }
 
 .companies__num {
@@ -1760,17 +1757,19 @@ html.is-menu-open {
 }
 
 .companies__media {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  height: 100%;
   overflow: hidden;
-  border-radius: var(--radius);
-  border: 1px solid var(--color-border);
-  box-shadow: 0 16px 40px rgba(5, 11, 32, 0.1);
 }
 
 .companies__media img {
   display: block;
   width: 100%;
-  height: auto;
+  height: 100%;
   object-fit: cover;
+  object-position: center;
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -1851,6 +1850,11 @@ html.is-menu-open {
     text-orientation: mixed;
   }
 
+  .companies__content {
+    padding: 0;
+    overflow: visible;
+  }
+
   .companies__inner {
     position: static;
     display: none;
@@ -1874,6 +1878,12 @@ html.is-menu-open {
 
   .companies__media {
     order: -1;
+    height: auto;
+  }
+
+  .companies__media img {
+    height: auto;
+    aspect-ratio: 3 / 2;
   }
 }
 
