@@ -1006,13 +1006,6 @@ html.is-menu-open {
 
 /* ---- Hero Stage (video fixed until About) ---- */
 
-.hero__title-wrap {
-  opacity: 0;
-  transform: translateY(110%) skewX(-10deg);
-}
-.hero__lead-line {
-  opacity: 0;
-}
 .hero-stage {
   position: relative;
   z-index: 3;
