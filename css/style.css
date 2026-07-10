@@ -1566,8 +1566,8 @@ html.is-menu-open {
   z-index: 1;
   background: linear-gradient(
     180deg,
-    rgba(5, 11, 32, 0.08) 0%,
-    rgba(5, 11, 32, 0.52) 100%
+    rgba(5, 11, 32, 0.18) 0%,
+    rgba(5, 11, 32, 0.68) 100%
   );
   pointer-events: none;
   transition: opacity 0.55s ease;
