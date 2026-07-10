@@ -1005,6 +1005,14 @@ html.is-menu-open {
 }
 
 /* ---- Hero Stage (video fixed until About) ---- */
+
+.hero__title-wrap {
+  opacity: 0;
+  transform: translateY(110%) skewX(-10deg);
+}
+.hero__lead-line {
+  opacity: 0;
+}
 .hero-stage {
   position: relative;
   z-index: 3;
@@ -2730,7 +2738,6 @@ html.is-menu-open {
 }
 
 .catalog__body {
-  font-family: var(--font-ja-mincho);
   color: var(--color-text-muted);
   margin-top: 24px;
   line-height: 1.9;
