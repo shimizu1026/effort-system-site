@@ -1637,9 +1637,7 @@ html.is-menu-open {
   overflow-y: auto;
   opacity: 0;
   visibility: hidden;
-  transition:
-    opacity 0.45s ease 0.12s,
-    visibility 0s linear 0.57s;
+  transition: none;
 }
 
 .companies__content {
@@ -1774,7 +1772,6 @@ html.is-menu-open {
   width: 100%;
   height: auto;
   object-fit: cover;
-  transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 @media (hover: hover) and (pointer: fine) {
@@ -1799,10 +1796,6 @@ html.is-menu-open {
     transition:
       opacity 0.45s ease 0.18s,
       visibility 0s linear 0.18s;
-  }
-
-  .companies__accordion:hover .companies__panel:hover .companies__media img {
-    transform: scale(1.04);
   }
 }
 
