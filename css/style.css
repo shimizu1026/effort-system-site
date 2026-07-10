@@ -1655,10 +1655,13 @@ html.is-menu-open {
 
 .companies__content {
   position: relative;
-  align-self: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-self: stretch;
   min-width: 0;
   min-height: 0;
-  max-height: 100%;
+  height: 100%;
   --companies-content-padding-left: clamp(48px, 8vw, 96px);
   padding-block: clamp(32px, 5vw, 64px);
   padding-right: clamp(24px, 3vw, 40px);
@@ -1892,7 +1895,9 @@ html.is-menu-open {
   }
 
   .companies__content {
+    display: block;
     align-self: auto;
+    height: auto;
     max-height: none;
     background: transparent;
     padding: 0;
